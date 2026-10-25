@@ -1,0 +1,1037 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Se soigner en France</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: one screen at a time. Home = four large tiles; the simulator asks one question per screen; every screen has a single obvious way back. Sober neutrals, one deep blue accent, red only for emergencies. */
+:root{
+  --bg:#F3F5F6; --card:#FFFFFF; --ink:#14181B; --ink-2:#454D53; --line:#C5CBD0; --line-strong:#7D868D;
+  --accent:#1D4B73; --on-accent:#FFFFFF; --accent-soft:#E4ECF3;
+  --urgent:#A8231C; --urgent-soft:#FBEAE9;
+  --ok:#1C6436; --ok-soft:#E3F0E7; --warn:#7A4E00; --warn-soft:#F7EEDC;
+  --focus:#C77700;
+  --f:"Noto Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-latin:"Noto Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --lh:1.6;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101315; --card:#1A1F23; --ink:#F0F2F3; --ink-2:#BAC2C8; --line:#3A4349; --line-strong:#87929A;
+  --accent:#A9CBEB; --on-accent:#0D1A26; --accent-soft:#1D3143;
+  --urgent:#FF8F86; --urgent-soft:#3A1B19;
+  --ok:#86D3A0; --ok-soft:#173022; --warn:#F2C46B; --warn-soft:#352812;
+  --focus:#FFB547; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101315; --card:#1A1F23; --ink:#F0F2F3; --ink-2:#BAC2C8; --line:#3A4349; --line-strong:#87929A;
+  --accent:#A9CBEB; --on-accent:#0D1A26; --accent-soft:#1D3143;
+  --urgent:#FF8F86; --urgent-soft:#3A1B19;
+  --ok:#86D3A0; --ok-soft:#173022; --warn:#F2C46B; --warn-soft:#352812;
+  --focus:#FFB547; color-scheme:dark}
+:root[dir="rtl"]{--f:"Noto Sans Arabic","Noto Sans",system-ui,sans-serif; --lh:1.85}
+html{font-size:112.5%}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:1rem;line-height:var(--lh)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
+h1,h2,h3{line-height:1.25;text-wrap:balance;margin:0;font-weight:700}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:.2em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px}
+.wrap{max-width:50rem;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.fr{direction:ltr;text-align:left;font-family:var(--f-latin);line-height:1.6}
+.flip{display:inline-flex}
+:root[dir="rtl"] .flip{transform:scaleX(-1)}
+
+/* Header */
+.top{background:var(--card);border-bottom:2px solid var(--line)}
+.top .wrap{padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;background:none;border:0;padding:6px 0;cursor:pointer;font-weight:700;font-size:1.15rem;text-align:start;min-height:48px}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;flex:none}
+.size{display:flex;align-items:center;gap:8px}
+.size-lbl{font-size:.9rem;color:var(--ink-2)}
+.size-row{display:inline-flex;border:2px solid var(--line-strong);border-radius:10px;overflow:hidden}
+.size-row button{background:var(--card);border:0;min-width:48px;min-height:48px;cursor:pointer;font-weight:700;line-height:1}
+.size-row button+button{border-inline-start:2px solid var(--line-strong)}
+.size-row button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.langbar{border-bottom:2px solid var(--line)}
+.langbar .wrap{padding-block:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.langbar .lbl{font-size:.9rem;color:var(--ink-2);margin-inline-end:4px;display:flex;align-items:center;gap:6px}
+.langbar button{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:0 16px;min-height:48px;cursor:pointer;font-weight:600;font-family:var(--f-latin)}
+.langbar button[lang="ar"],.langbar button[lang="fa-AF"],.langbar button[lang="ps"]{font-family:"Noto Sans Arabic",var(--f-latin);font-size:1.05rem}
+.langbar button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tnote{font-size:.92rem;color:var(--ink-2);padding-bottom:10px}
+.urgent{background:var(--urgent-soft);color:var(--ink)}
+.urgent .wrap{padding-block:12px;display:flex;gap:12px;align-items:center}
+.urgent .ic{color:var(--urgent);flex:none}
+.urgent p{font-weight:600}
+
+main .wrap{padding-block:28px 48px}
+.view{display:grid;gap:22px}
+.view:focus{outline:none}
+.view-head{display:grid;gap:8px}
+.view-head h1,.view-head h2{font-size:clamp(1.6rem,4.5vw,2.2rem)}
+.lead{font-size:1.1rem;color:var(--ink-2);max-width:36em}
+
+/* Icon circles */
+.ic-c{width:60px;height:60px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.ic-c.sm{width:48px;height:48px}
+
+/* Home tiles */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tile{display:flex;gap:16px;align-items:center;text-align:start;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:20px;cursor:pointer;min-height:120px}
+.tile:hover{border-color:var(--accent)}
+.tile .t-title{display:block;font-size:1.2rem;font-weight:700;line-height:1.3}
+.tile .t-sub{display:block;color:var(--ink-2);font-size:.98rem;margin-top:4px}
+.tile.main{grid-column:1/-1;background:var(--accent);border-color:var(--accent);color:var(--on-accent);min-height:140px}
+.tile.main .t-sub{color:var(--on-accent);opacity:.92}
+.tile.main .ic-c{background:var(--on-accent);color:var(--accent);width:72px;height:72px}
+.tile.main .t-title{font-size:1.45rem}
+.tile .chev{margin-inline-start:auto;flex:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--on-accent);border:2px solid var(--accent);border-radius:12px;padding:0 22px;min-height:56px;font-weight:700;font-size:1.05rem;cursor:pointer;text-decoration:none}
+.btn.sec{background:var(--card);color:var(--ink);border-color:var(--line-strong)}
+.back{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:0;min-height:48px;cursor:pointer;font-weight:600;color:var(--accent);justify-self:start;font-size:1rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Simulator */
+.progress{display:grid;gap:8px}
+.progress p{font-weight:600;color:var(--ink-2)}
+.bar{display:flex;gap:6px}
+.bar span{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.bar span.on{background:var(--accent)}
+.qcard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:16px}
+.qcard h2{font-size:clamp(1.35rem,3.6vw,1.7rem)}
+.qcard .hint{color:var(--ink-2)}
+.choices{display:grid;gap:12px}
+.choice{display:flex;align-items:center;gap:16px;width:100%;text-align:start;background:var(--card);border:2px solid var(--line-strong);border-radius:14px;padding:12px 16px;min-height:76px;cursor:pointer;font-size:1.1rem;line-height:1.35}
+.choice:hover{border-color:var(--accent)}
+.choice[aria-pressed="true"]{border:3px solid var(--accent);background:var(--accent-soft);padding:11px 15px}
+.choice .txt{flex:1;min-width:0}
+.choice .tick{flex:none;color:var(--accent);visibility:hidden}
+.choice[aria-pressed="true"] .tick{visibility:visible}
+.stepper{display:inline-flex;align-items:center;border:2px solid var(--line-strong);border-radius:14px;overflow:hidden;justify-self:start}
+.stepper button{width:72px;height:72px;border:0;background:var(--card);font-size:2rem;font-weight:700;cursor:pointer;line-height:1}
+.stepper output{min-width:84px;text-align:center;font-size:2rem;font-weight:700;border-inline:2px solid var(--line-strong);padding-block:12px;font-variant-numeric:tabular-nums}
+.money{display:flex;align-items:center;gap:10px;border:2px solid var(--line-strong);border-radius:14px;padding:0 16px;min-height:72px;background:var(--card);justify-self:start;max-width:100%}
+.money:focus-within{outline:4px solid var(--focus);outline-offset:3px}
+.money input{font:700 1.8rem/1 var(--f-latin);width:6.5em;max-width:55vw;border:0;background:transparent;color:var(--ink);direction:ltr;font-variant-numeric:tabular-nums}
+.money input:focus{outline:none}
+.money span{color:var(--ink-2);font-weight:600}
+.capline{font-size:.95rem;color:var(--ink-2)}
+.private{display:flex;gap:8px;align-items:center;font-size:.92rem;color:var(--ink-2)}
+
+/* Result */
+.rlist{display:grid;gap:16px;list-style:none;margin:0;padding:0}
+.rcard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:12px}
+.rhead{display:flex;gap:14px;align-items:center}
+.rhead h3{font-size:1.25rem}
+.pill{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.95rem;padding:4px 12px 4px 8px;border-radius:999px;justify-self:start}
+:root[dir="rtl"] .pill{padding:4px 8px 4px 12px}
+.pill.now{background:var(--accent);color:var(--on-accent)}
+.pill.yes{background:var(--ok-soft);color:var(--ok)}
+.pill.check{background:var(--warn-soft);color:var(--warn)}
+.pill.later{background:var(--bg);color:var(--ink-2);border:2px dashed var(--line-strong)}
+.rcard p{font-size:1.05rem}
+.more{display:grid;gap:12px;border-top:2px solid var(--line);padding-top:14px}
+.more h4{margin:0;font-size:1rem}
+.more ul{margin:0;padding-inline-start:22px;display:grid;gap:8px}
+.toggle{justify-self:start;display:inline-flex;align-items:center;gap:8px;background:none;border:2px solid var(--line-strong);border-radius:10px;padding:0 14px;min-height:48px;font-weight:600;cursor:pointer}
+.toggle svg{transition:transform .15s}
+.toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.rbtns{display:flex;flex-wrap:wrap;gap:10px}
+.notes{background:var(--accent-soft);border-radius:16px;padding:20px;display:grid;gap:12px}
+.notes h3{font-size:1.1rem;display:flex;gap:8px;align-items:center}
+.notes ul{margin:0;padding-inline-start:22px;display:grid;gap:10px}
+.notapply{font-size:.98rem;color:var(--ink-2);border-top:2px solid var(--line);padding-top:14px;display:grid;gap:6px}
+.notapply b{color:var(--ink)}
+.disclaimer{font-size:.95rem;color:var(--ink-2)}
+
+/* Aides list + fiche */
+.rows{display:grid;gap:12px;list-style:none;margin:0;padding:0}
+.row{display:flex;align-items:center;gap:16px;width:100%;text-align:start;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;min-height:84px}
+.row:hover{border-color:var(--accent)}
+.row .txt{flex:1;min-width:0}
+.row b{display:block;font-size:1.12rem}
+.row small{display:block;font-size:.95rem;color:var(--ink-2);margin-top:2px}
+.fblock{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:6px}
+.fblock h3{font-size:1.05rem;color:var(--ink-2);font-weight:600}
+.fblock p{font-size:1.12rem}
+details.pro{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:0 20px}
+details.pro>summary{cursor:pointer;font-weight:700;min-height:60px;display:flex;align-items:center}
+.pro-body{padding-bottom:18px;display:grid;gap:12px;font-size:.95rem}
+.pro-body ul{margin:0;padding-left:22px;display:grid;gap:8px}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;min-width:340px;width:100%;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:8px;border-bottom:1px solid var(--line);text-align:right}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+
+/* Phrases */
+.phrase{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:12px}
+.phrase .say{font-size:1.3rem;font-weight:600}
+.phrase .meaning{color:var(--ink-2)}
+.overlay{position:fixed;inset:0;z-index:50;background:var(--card);color:var(--ink);display:flex;flex-direction:column;justify-content:center;gap:24px;
+  padding-top:calc(88px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.overlay .big{font-size:clamp(2rem,7vw,3.6rem);font-weight:700;line-height:1.3}
+.overlay .btn{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Contacts */
+.nums{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.num{display:flex;align-items:center;gap:18px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 18px}
+.num .n{font-size:2rem;font-weight:700;min-width:3.2ch;direction:ltr;text-align:center;font-family:var(--f-latin);font-variant-numeric:tabular-nums;user-select:all}
+.num.urg{border-color:var(--urgent)}
+.num.urg .n{color:var(--urgent)}
+.sub-h{font-size:1.25rem}
+.orgs{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.orgs li{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 18px;display:grid;gap:2px}
+.orgs .o-name{font-weight:700;font-size:1.08rem;font-family:var(--f-latin)}
+.orgs .o-desc{color:var(--ink-2)}
+.box{background:var(--accent-soft);border-radius:14px;padding:16px 18px}
+details.src{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:0 18px}
+details.src>summary{cursor:pointer;font-weight:700;min-height:56px;display:flex;align-items:center}
+details.src ol{margin:0 0 16px;padding-left:22px;display:grid;gap:8px;font-size:.92rem}
+
+footer{border-top:2px solid var(--line);color:var(--ink-2);font-size:.92rem}
+footer .wrap{padding-block:20px}
+
+/* Lieux */
+.locbox{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px}
+.locbox label{font-weight:700;font-size:1.05rem}
+.locrow{display:flex;flex-wrap:wrap;gap:10px}
+.locrow input{flex:1 1 220px;min-width:0;font:600 1.2rem/1.2 var(--f);border:2px solid var(--line-strong);border-radius:12px;padding:0 16px;min-height:56px;background:var(--card);color:var(--ink)}
+.locset{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.locset p{font-weight:700;font-size:1.1rem;display:flex;gap:8px;align-items:center}
+.grp-h{font-size:1.15rem;color:var(--ink-2);font-weight:600;margin-top:6px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--ok-soft);color:var(--ok);font-weight:700;font-size:.95rem;padding:4px 12px 4px 8px;border-radius:999px;justify-self:start}
+:root[dir="rtl"] .badge{padding:4px 8px 4px 12px}
+.places{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.places li{border:2px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:2px;background:var(--card)}
+.places b{font-size:1.05rem;font-family:var(--f-latin)}
+.places .addr{font-family:var(--f-latin);direction:ltr;text-align:start}
+.places .dist{color:var(--ink-2);font-size:.95rem}
+.note-s{font-size:.92rem;color:var(--ink-2)}
+.big-nums{display:flex;flex-wrap:wrap;gap:12px}
+.big-nums span{font:700 2rem/1 var(--f-latin);color:var(--urgent);border:2px solid var(--urgent);border-radius:12px;padding:12px 18px;direction:ltr}
+.langs-list{display:flex;flex-wrap:wrap;gap:8px}
+.langs-list a{display:inline-flex;align-items:center;min-height:48px;padding:0 16px;border:2px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);font-weight:600;background:var(--card)}
+.langs-list a.mine{border-color:var(--accent);background:var(--accent-soft)}
+.lf{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:14px}
+.lf h2{font-size:1.25rem;display:flex;gap:10px;align-items:center}
+
+@media (max-width:640px){
+  .tiles{grid-template-columns:minmax(0,1fr)}
+  .tile{min-height:100px;padding:16px}
+  .size-lbl{display:none}
+}
+@media (prefers-reduced-motion:reduce){.toggle svg{transition:none}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <button type="button" class="brand" id="brand">
+      <span class="brand-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z" fill="currentColor"/></svg></span>
+      <span data-t="name"></span>
+    </button>
+    <div class="size">
+      <span class="size-lbl" id="sizeLbl" data-t="size.label"></span>
+      <div class="size-row" role="group" aria-labelledby="sizeLbl">
+        <button type="button" data-size="1" style="font-size:1rem">A</button>
+        <button type="button" data-size="2" style="font-size:1.25rem">A</button>
+        <button type="button" data-size="3" style="font-size:1.55rem">A</button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="langbar">
+  <div class="wrap">
+    <span class="lbl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span data-t="lang.label"></span></span>
+    <span id="langs" style="display:contents"></span>
+  </div>
+  <div class="wrap"><p class="tnote" id="tnote" data-t="transNote" hidden></p></div>
+</div>
+<div class="urgent" role="note">
+  <div class="wrap">
+    <span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+    <p data-t="urgent.short"></p>
+  </div>
+</div>
+
+<main><div class="wrap" id="app"></div></main>
+<footer><div class="wrap"><p data-t="foot"></p></div></footer>
+
+<div class="overlay" id="overlay" hidden role="dialog" aria-modal="true" aria-label="Phrase">
+  <button class="btn" type="button" id="ovClose"></button>
+  <p class="big fr" lang="fr" id="ovText"></p>
+</div>
+
+<script>
+(function(){
+"use strict";
+var LANGS=[
+  {k:"fr",lang:"fr",dir:"ltr",label:"Français",fr:"__________"},
+  {k:"en",lang:"en",dir:"ltr",label:"English",fr:"anglais"},
+  {k:"ar",lang:"ar",dir:"rtl",label:"العربية",fr:"arabe"},
+  {k:"prs",lang:"fa-AF",dir:"rtl",label:"دری",fr:"dari"},
+  {k:"ps",lang:"ps",dir:"rtl",label:"پښتو",fr:"pachto"}
+];
+var T={};
+function d(k,fr,en,ar,prs,ps){T[k]={fr:fr,en:en,ar:ar,prs:prs,ps:ps};}
+
+/* Interface */
+d("name","Se soigner en France","Getting care in France","العلاج في فرنسا","تداوی در فرانسه","په فرانسه کې درملنه");
+d("tagline","Vos droits à la santé, avec ou sans papiers.","Your health rights, with or without papers.","حقوقك في العلاج، بأوراق أو بدونها.","حقوق صحی شما، با مدارک یا بدون مدارک.","ستاسو روغتیايي حقونه، له اسنادو سره یا بې له اسنادو.");
+d("home.question","Que voulez-vous faire ?","What would you like to do?","ماذا تريد أن تفعل؟","چه کاری می‌خواهید انجام بدهید؟","څه کول غواړئ؟");
+d("home.sim","Quels sont mes droits ?","What are my rights?","ما هي حقوقي؟","حقوق من چیست؟","زما حقونه کوم دي؟");
+d("home.sim.sub","Répondez à quelques questions simples. Nous vous disons quoi demander et où aller.","Answer a few simple questions. We tell you what to ask for and where to go.","أجب عن بعض الأسئلة البسيطة. نخبرك بما تطلبه وإلى أين تذهب.","به چند سوال ساده جواب بدهید. ما می‌گوییم چه چیزی درخواست کنید و کجا بروید.","څو ساده پوښتنو ته ځواب ورکړئ. موږ درته وایو چې څه وغواړئ او چېرته لاړ شئ.");
+d("nav.aides","Les aides","Types of help","أنواع المساعدة","انواع کمک","د مرستې ډولونه");
+d("home.aides.sub","Ce que chaque aide paie, et pour qui.","What each type of help pays for, and who it is for.","ما تدفعه كل مساعدة، ولمن.","هر کمک چه چیزی را می‌پردازد، و برای کیست.","هره مرسته څه ورکوي، او د چا لپاره ده.");
+d("nav.phrases","Phrases à montrer","Phrases to show","عبارات للعرض","جملات برای نشان دادن","د ښودلو جملې");
+d("home.phrases.sub","Des phrases en français à montrer à l'accueil.","Phrases in French to show at the front desk.","عبارات بالفرنسية لعرضها في الاستقبال.","جملات فرانسوی برای نشان دادن در پذیرش.","په استقبال کې د ښودلو لپاره فرانسوي جملې.");
+d("home.contacts","Urgences et contacts","Emergencies and contacts","الطوارئ وجهات الاتصال","عاجل و تماس‌ها","بیړني حالات او اړیکې");
+d("home.contacts.sub","Numéros utiles et associations qui aident.","Useful numbers and associations that help.","أرقام مفيدة وجمعيات تساعد.","شماره‌های مفید و مؤسسه‌هایی که کمک می‌کنند.","ګټورې شمېرې او مرستندویې موسسې.");
+d("nav.home","Accueil","Home","الصفحة الرئيسية","صفحه اصلی","کور پاڼه");
+d("back","Retour","Back","رجوع","برگشت","شاته");
+d("next","Suivant","Next","التالي","بعدی","بل");
+d("size.label","Taille du texte","Text size","حجم النص","اندازه متن","د متن اندازه");
+d("lang.label","Langue","Language","اللغة","زبان","ژبه");
+d("transNote","","This translation has not yet been checked by a native speaker. When in doubt, ask an association.","لم يراجع متحدث أصلي هذه الترجمة بعد. إذا كان لديك شك، اسأل جمعية.","این ترجمه هنوز توسط یک سخنور بومی بررسی نشده است. اگر شک دارید، از یک مؤسسه بپرسید.","دا ژباړه لا تر اوسه د یو اصلي ویونکي له خوا نه ده کتل شوې. که شک لرئ، له یوې موسسې وپوښتئ.");
+d("urgent.short","Urgence grave : appelez le 15 ou le 112.","Serious emergency: call 15 or 112.","حالة طارئة خطيرة: اتصل بالرقم 15 أو 112.","حالت عاجل جدی: به 15 یا 112 زنگ بزنید.","جدي بیړنی حالت: 15 یا 112 ته زنګ ووهئ.");
+d("urgent","Les urgences des hôpitaux publics soignent toute personne, même sans papiers et sans couverture maladie.","Public hospital emergency departments treat everyone, even without papers or health cover.","أقسام الطوارئ في المستشفيات العامة تعالج كل شخص، حتى بدون أوراق وبدون تأمين صحي.","بخش عاجل شفاخانه‌های دولتی هر کس را تداوی می‌کند، حتی بدون مدارک و بدون بیمه صحی.","د دولتي روغتونونو بیړنۍ برخې هر چا ته درملنه کوي، حتی بې اسنادو او بې روغتیايي بیمې.");
+d("sim.private","Rien n'est enregistré : vos réponses restent sur votre appareil.","Nothing is saved: your answers stay on your device.","لا يُحفظ أي شيء: تبقى إجاباتك على جهازك.","هیچ چیزی ذخیره نمی‌شود: جواب‌های شما روی دستگاه خودتان می‌ماند.","هېڅ شی نه ساتل کېږي: ستاسو ځوابونه ستاسو په وسیله کې پاتې کېږي.");
+d("progress","Question {i} sur {n}","Question {i} of {n}","السؤال {i} من {n}","سوال {i} از {n}","پوښتنه {i} له {n}");
+
+/* Questions */
+d("q1","Quelle est votre situation de séjour ?","What is your residence status?","ما هو وضع إقامتك؟","وضعیت اقامت شما چیست؟","ستاسو د اوسېدو وضعیت څه دی؟");
+d("q1.hint","Si les soins sont pour un enfant, répondez pour ses parents.","If care is for a child, answer for the parents.","إذا كان العلاج لطفل، أجب عن وضع والديه.","اگر تداوی برای یک طفل است، برای والدینش جواب بدهید.","که درملنه د ماشوم لپاره وي، د هغه د مور او پلار په اړه ځواب ورکړئ.");
+d("o.reg","Nationalité française, titre de séjour valable ou récépissé","French citizen, valid residence permit or receipt (récépissé)","جنسية فرنسية، أو بطاقة إقامة سارية، أو وصل (récépissé)","تابعیت فرانسوی، اجازه اقامت معتبر یا رسید (récépissé)","فرانسوي تابعیت، د اوسېدو معتبر اجازه لیک یا رسید (récépissé)");
+d("o.asile","Demande d'asile en cours","Asylum claim in progress","طلب لجوء قيد الدراسة","درخواست پناهندگی در جریان","د پناه غوښتنه روانه ده");
+d("o.sans","Sans titre de séjour, ou titre expiré","No residence permit, or permit expired","بدون بطاقة إقامة، أو بطاقة منتهية","بدون اجازه اقامت، یا اجازه اقامت ختم شده","د اوسېدو اجازه لیک نشته، یا یې موده تېره شوې");
+d("o.visa","Visa touriste ou court séjour encore valable","Tourist or short-stay visa, still valid","تأشيرة سياحية أو إقامة قصيرة ما زالت سارية","ویزه توریستی یا کوتاه‌مدت که هنوز معتبر است","سیاحتي یا لنډمهاله ویزه چې لا معتبره ده");
+d("o.ue","Citoyen européen (UE), sans travail en France","EU citizen, not working in France","مواطن من الاتحاد الأوروبي، لا يعمل في فرنسا","تبعه اتحادیه اروپا، بدون کار در فرانسه","د اروپايي اتحادیې تبعه، په فرانسه کې بې کاره");
+d("q2","Depuis combien de temps vivez-vous en France, sans interruption ?","How long have you lived in France without a break?","منذ متى تعيش في فرنسا دون انقطاع؟","چند وقت است که بدون وقفه در فرانسه زندگی می‌کنید؟","څومره موده کېږي چې بې له وقفې په فرانسه کې اوسېږئ؟");
+d("o.lt3","Moins de 3 mois","Less than 3 months","أقل من 3 أشهر","کمتر از 3 ماه","له 3 میاشتو کم");
+d("o.gt3","Plus de 3 mois","More than 3 months","أكثر من 3 أشهر","بیشتر از 3 ماه","له 3 میاشتو زیات");
+d("q3","Les soins sont pour qui ?","Who needs care?","لمن العلاج؟","تداوی برای کیست؟","درملنه د چا لپاره ده؟");
+d("o.adulte","Un adulte","An adult","شخص بالغ","یک شخص بزرگسال","یو لوی سړی یا ښځه");
+d("o.enfant","Un enfant (moins de 18 ans)","A child (under 18)","طفل (أقل من 18 سنة)","یک طفل (کمتر از 18 سال)","ماشوم (له 18 کلونو کم)");
+d("o.enceinte","Une femme enceinte","A pregnant woman","امرأة حامل","یک خانم حامله","امیندواره ښځه");
+d("q4","Où habitez-vous ?","Where do you live?","أين تسكن؟","کجا زندگی می‌کنید؟","چېرته اوسېږئ؟");
+d("o.metro","France métropolitaine","Mainland France","فرنسا القارية","فرانسه اصلی (اروپا)","اصلي فرانسه (اروپا)");
+d("o.dom","Guadeloupe, Guyane, Martinique ou La Réunion","Guadeloupe, French Guiana, Martinique or Réunion","غوادلوب، غويانا، مارتينيك أو لا ريونيون","گوادلوپ، گویان، مارتینیک یا رئونیون","ګوادلوپ، ګویان، مارتینیک یا رئونیون");
+d("o.mayotte","Mayotte","Mayotte","مايوت","مایوت","مایوت");
+d("q5","Combien de personnes dans votre foyer ?","How many people in your household?","كم عدد أفراد أسرتك؟","خانواده شما چند نفر است؟","ستاسو په کورنۍ کې څو کسان دي؟");
+d("q5.hint","Vous, votre conjoint et les enfants à votre charge.","You, your partner and the children you support.","أنت، وزوجك أو شريكك، والأطفال الذين تعيلهم.","خودتان، همسرتان و اطفالی که سرپرستی‌شان را دارید.","تاسو، ستاسو مېړه یا مېرمن، او هغه ماشومان چې ستاسو تر سرپرستۍ لاندې دي.");
+d("q6","Combien reçoit votre foyer par mois, en moyenne ?","How much does your household receive per month, on average?","كم يبلغ دخل أسرتك شهرياً، في المتوسط؟","خانواده شما به طور اوسط در ماه چقدر عاید دارد؟","ستاسو کورنۍ په اوسط ډول په میاشت کې څومره عاید لري؟");
+d("q6.hint","Salaires, allocations et aides des 12 derniers mois.","Wages, benefits and allowances over the last 12 months.","الأجور والمنح والمساعدات خلال آخر 12 شهراً.","معاش، کمک‌ها و کمک‌هزینه‌ها در 12 ماه گذشته.","معاشونه، مرستې او ګټې په تېرو 12 میاشتو کې.");
+d("q6.unit","€ par mois","€ per month","يورو شهرياً","یورو در ماه","یورو په میاشت کې");
+d("q6.none","Je n'ai aucune ressource","I have no income","ليس لدي أي دخل","هیچ عایدی ندارم","هېڅ عاید نه لرم");
+d("q6.dk","Je ne sais pas","I don't know","لا أعرف","نمی‌دانم","نه پوهېږم");
+d("see.result","Voir mon résultat","See my result","عرض النتيجة","نتیجه را ببینید","پایله وګورئ");
+d("calc.cap","Pour {n} personne(s), l'AME et la C2S gratuite vont jusqu'à {a} par an, soit {m} par mois.","For {n} person(s), AME and free C2S go up to {a} a year, which is {m} a month.","لـ {n} شخص، تصل AME وC2S المجانية حتى {a} سنوياً، أي {m} شهرياً.","برای {n} نفر، AME و C2S رایگان تا {a} در سال است، یعنی {m} در ماه.","د {n} کسانو لپاره، AME او وړیا C2S تر {a} پورې په کال کې دي، یعنې {m} په میاشت کې.");
+
+/* Résultat */
+d("res.title","Votre résultat","Your result","نتيجتك","نتیجه شما","ستاسو پایله");
+d("res.lead","Voici ce que vous pouvez faire, dans l'ordre.","Here is what you can do, in order.","إليك ما يمكنك فعله، بالترتيب.","این کارهایی است که می‌توانید انجام بدهید، به ترتیب.","دا هغه کارونه دي چې کولای یې شئ، په ترتیب سره.");
+d("res.details","Papiers et adresse","Papers and where to go","الأوراق والعنوان","مدارک و آدرس","اسناد او پته");
+d("res.papers","Papiers à préparer","Papers to prepare","الأوراق التي يجب تحضيرها","مدارکی که باید آماده کنید","هغه اسناد چې باید چمتو یې کړئ");
+d("res.where","Où aller","Where to go","إلى أين تذهب","کجا بروید","چېرته لاړ شئ");
+d("res.more","En savoir plus","Read more","اقرأ المزيد","بیشتر بخوانید","نور ولولئ");
+d("res.notes","À savoir","Good to know","معلومات مهمة","بهتر است بدانید","ښه ده چې پوه شئ");
+d("res.notapply","Pas pour vous pour l'instant :","Not for you for now:","ليس لك الآن:","فعلاً برای شما نیست:","اوس ستاسو لپاره نه ده:");
+d("res.edit","Modifier mes réponses","Change my answers","تعديل إجاباتي","تغییر جواب‌ها","ځوابونه بدل کړئ");
+d("res.restart","Recommencer","Start again","البدء من جديد","از نو شروع کنید","بیا پیل کړئ");
+d("res.disclaimer","C'est une orientation, pas une décision. Seule l'Assurance maladie (CPAM) décide. Si vous pouvez, faites-vous aider par une association.","This is guidance, not a decision. Only the health insurance office (CPAM) decides. If you can, get help from an association.","هذا توجيه وليس قراراً. صندوق التأمين الصحي (CPAM) وحده يقرّر. إذا استطعت، اطلب المساعدة من جمعية.","این یک راهنمایی است، نه یک تصمیم. فقط سازمان بیمه (CPAM) تصمیم می‌گیرد. اگر می‌توانید، از یک مؤسسه کمک بگیرید.","دا یوه لارښوونه ده، پرېکړه نه ده. یوازې د روغتیايي بیمې دفتر (CPAM) پرېکړه کوي. که کولای شئ، له یوې موسسې مرسته وغواړئ.");
+d("st.now","Tout de suite","Right now","فوراً","همین حالا","همدا اوس");
+d("st.yes","Droit probable","Likely entitled","حق محتمل","حق احتمالی","احتمالي حق");
+d("st.check","À vérifier","To check","يجب التحقق","باید بررسی شود","باید وکتل شي");
+d("st.later","Plus tard","Later","لاحقاً","بعداً","وروسته");
+
+d("pl.puma","Sécurité sociale (PUMa)","Health insurance (PUMa)","الضمان الصحي (PUMa)","بیمه صحی (PUMa)","روغتیايي بیمه (PUMa)");
+d("pl.c2s","Complémentaire santé solidaire (C2S)","Top-up health cover (C2S)","التغطية الصحية التكميلية (C2S)","بیمه تکمیلی صحی (C2S)","بشپړونکې روغتیايي بیمه (C2S)");
+d("pl.ame","Aide médicale de l'État (AME)","State medical aid (AME)","المساعدة الطبية الحكومية (AME)","کمک طبی دولت (AME)","د دولت طبي مرسته (AME)");
+d("pl.suv","Soins urgents à l'hôpital","Urgent hospital care","العلاج العاجل في المستشفى","تداوی عاجل در شفاخانه","په روغتون کې بیړنۍ درملنه");
+d("pl.pass","PASS de l'hôpital","Hospital PASS clinic","عيادة PASS في المستشفى","PASS شفاخانه","د روغتون PASS");
+d("pl.tsoins","Titre de séjour pour soins","Residence permit for medical care","إقامة للعلاج","اجازه اقامت برای تداوی","د درملنې لپاره د اوسېدو اجازه");
+d("pl.assur","Assurance voyage","Travel insurance","تأمين السفر","بیمه سفر","د سفر بیمه");
+
+d("r.puma.yes","Elle rembourse une grande partie de vos soins. Vous recevrez une carte Vitale.","It pays back a large part of your health costs. You will get a Carte Vitale.","يغطي جزءاً كبيراً من تكاليف علاجك. ستحصل على بطاقة Vitale.","بخش بزرگی از هزینه‌های تداوی شما را می‌پردازد. شما کارت Vitale دریافت می‌کنید.","ستاسو د درملنې د لګښتونو لویه برخه ورکوي. تاسو به Vitale کارت ترلاسه کړئ.");
+d("r.puma.lt3","Si vous travaillez ou étudiez en France, demandez-la tout de suite. Sinon, vous y aurez droit après 3 mois en France.","If you work or study in France, apply now. Otherwise you will be entitled after 3 months in France.","إذا كنت تعمل أو تدرس في فرنسا، قدّم الطلب الآن. وإلا فسيكون لك الحق بعد 3 أشهر في فرنسا.","اگر در فرانسه کار می‌کنید یا درس می‌خوانید، همین حالا درخواست بدهید. در غیر آن، بعد از 3 ماه در فرانسه حق آن را دارید.","که په فرانسه کې کار کوئ یا زده کړه کوئ، همدا اوس یې وغواړئ. که نه، له 3 میاشتو وروسته به یې حق ولرئ.");
+d("r.puma.asileLater","Pour un adulte demandeur d'asile, elle commence après 3 mois en France. Faites la demande à la CPAM dès que votre demande d'asile est enregistrée.","For an adult asylum seeker, it starts after 3 months in France. Apply to the CPAM as soon as your asylum claim is registered.","بالنسبة لطالب اللجوء البالغ، يبدأ بعد 3 أشهر في فرنسا. قدّم الطلب إلى CPAM بمجرد تسجيل طلب لجوئك.","برای یک بزرگسال درخواست‌کننده پناهندگی، بعد از 3 ماه در فرانسه شروع می‌شود. به محض ثبت درخواست پناهندگی، به CPAM درخواست بدهید.","د پناه غوښتونکي لوی سړي یا ښځې لپاره، له 3 میاشتو وروسته پیل کېږي. کله چې ستاسو د پناه غوښتنه ثبت شي، سمدستي CPAM ته غوښتنه ورکړئ.");
+d("r.puma.asileChild","Les enfants de demandeurs d'asile y ont droit tout de suite, sans attendre 3 mois.","Children of asylum seekers are entitled right away, with no 3-month wait.","لأطفال طالبي اللجوء الحق فوراً، دون انتظار 3 أشهر.","اطفال درخواست‌کنندگان پناهندگی فوراً حق دارند، بدون انتظار 3 ماه.","د پناه غوښتونکو ماشومان سمدستي حق لري، د 3 میاشتو انتظار ته اړتیا نشته.");
+d("r.puma.ue","Si vous avez une carte européenne d'assurance maladie (CEAM) de votre pays, utilisez-la. Sinon, la CPAM vérifie votre droit au séjour : la réponse peut être la PUMa ou l'AME.","If you have a European Health Insurance Card (EHIC) from your country, use it. Otherwise the CPAM checks your right of residence: the answer may be PUMa or AME.","إذا كانت لديك البطاقة الأوروبية للتأمين الصحي من بلدك، استعملها. وإلا فإن CPAM تتحقق من حقك في الإقامة: قد يكون الجواب PUMa أو AME.","اگر کارت اروپایی بیمه صحی از کشور خود دارید، از آن استفاده کنید. در غیر آن، CPAM حق اقامت شما را بررسی می‌کند: جواب می‌تواند PUMa یا AME باشد.","که د خپل هېواد اروپايي روغتیايي بیمې کارت لرئ، هغه وکاروئ. که نه، CPAM ستاسو د اوسېدو حق ګوري: ځواب کېدای شي PUMa یا AME وي.");
+d("r.c2s.free","Avec vos ressources, la C2S est gratuite. Vous n'avancez pas d'argent chez le médecin, à la pharmacie ou à l'hôpital.","With your income, C2S is free. You pay nothing upfront at the doctor, the pharmacy or the hospital.","مع دخلك، تكون C2S مجانية. لا تدفع أي مال مسبقاً عند الطبيب أو في الصيدلية أو في المستشفى.","با عاید شما، C2S رایگان است. نزد داکتر، در دواخانه یا شفاخانه پول پیشکی نمی‌دهید.","ستاسو د عاید سره، C2S وړیا ده. د ډاکټر، درملتون یا روغتون کې مخکې پیسې نه ورکوئ.");
+d("r.c2s.partic","Avec vos ressources, la C2S coûte entre 8 et 30 € par mois et par personne, selon l'âge.","With your income, C2S costs between €8 and €30 per month per person, depending on age.","مع دخلك، تكلّف C2S ما بين 8 و30 يورو شهرياً لكل شخص، حسب العمر.","با عاید شما، C2S بین 8 تا 30 یورو در ماه برای هر نفر هزینه دارد، نظر به سن.","ستاسو د عاید سره، C2S د هر کس لپاره په میاشت کې له 8 تر 30 یورو پورې لګښت لري، د عمر له مخې.");
+d("r.c2s.above","Vos ressources dépassent le plafond. Vous pouvez prendre une mutuelle classique.","Your income is above the limit. You can take out an ordinary top-up insurance (mutuelle).","دخلك يتجاوز الحد الأقصى. يمكنك الاشتراك في تأمين تكميلي عادي (mutuelle).","عاید شما از سقف بالاتر است. می‌توانید یک بیمه تکمیلی عادی (mutuelle) بگیرید.","ستاسو عاید له حد څخه زیات دی. تاسو کولای شئ عادي بشپړونکې بیمه (mutuelle) واخلئ.");
+d("r.unknown","Elle dépend de vos ressources. Une association ou la CPAM peut faire le calcul avec vous.","It depends on your income. An association or the CPAM can work it out with you.","تعتمد على دخلك. يمكن لجمعية أو لـ CPAM القيام بالحساب معك.","به عاید شما بستگی دارد. یک مؤسسه یا CPAM می‌تواند با شما محاسبه کند.","ستاسو په عاید پورې اړه لري. یوه موسسه یا CPAM کولای شي له تاسو سره حساب وکړي.");
+d("r.c2s.after","Elle se demande avec la PUMa ou après, selon vos ressources.","You can apply for it together with PUMa or afterwards, depending on your income.","يمكن طلبها مع PUMa أو بعدها، حسب دخلك.","همراه با PUMa یا بعد از آن، نظر به عاید شما درخواست می‌شود.","د PUMa سره یوځای یا وروسته غوښتل کېږي، ستاسو د عاید له مخې.");
+d("r.ame.yes","Elle paie vos soins à 100 %, sans avancer d'argent, chez le médecin, à la pharmacie et à l'hôpital. Elle dure 1 an et se renouvelle.","It covers 100% of your care, with nothing to pay upfront, at the doctor, the pharmacy and the hospital. It lasts 1 year and can be renewed.","تغطي علاجك بنسبة 100%، دون دفع مسبق، عند الطبيب وفي الصيدلية والمستشفى. مدتها سنة واحدة وتُجدَّد.","صد در صد هزینه تداوی شما را می‌پردازد، بدون پرداخت پیشکی، نزد داکتر، در دواخانه و شفاخانه. یک سال اعتبار دارد و تمدید می‌شود.","ستاسو د درملنې سل په سلو کې لګښت ورکوي، پرته له مخکې تادیې، د ډاکټر، درملتون او روغتون کې. یو کال اعتبار لري او نوي کېږي.");
+d("r.ame.child","Un enfant peut l'avoir tout de suite, sans attendre 3 mois, même si ses parents ne l'ont pas.","A child can get it right away, with no 3-month wait, even if the parents do not have it.","يمكن للطفل الحصول عليها فوراً، دون انتظار 3 أشهر، حتى لو لم يحصل عليها والداه.","طفل می‌تواند فوراً آن را بگیرد، بدون انتظار 3 ماه، حتی اگر والدینش آن را نداشته باشند.","ماشوم کولای شي سمدستي یې ترلاسه کړي، د 3 میاشتو انتظار پرته، حتی که مور او پلار یې ونه لري.");
+d("r.ame.later","Vous pourrez la demander après 3 mois en France. Gardez dès maintenant des preuves datées de votre présence : factures, attestation d'hébergement, attestation d'une association.","You can apply after 3 months in France. Start keeping dated proof that you are here: bills, a letter from your host, a letter from an association.","يمكنك طلبها بعد 3 أشهر في فرنسا. احتفظ من الآن بإثباتات مؤرخة لوجودك: فواتير، شهادة إيواء، شهادة من جمعية.","بعد از 3 ماه در فرانسه می‌توانید درخواست بدهید. از همین حالا اسناد تاریخ‌دار حضور خود را نگه دارید: بل‌ها، تصدیق محل اقامت، تصدیق یک مؤسسه.","له 3 میاشتو وروسته یې غوښتلای شئ. له همدا اوسه د خپل شتون نېټه لرونکي ثبوتونه وساتئ: بلونه، د استوګنې تصدیق، د یوې موسسې تصدیق.");
+d("r.suv.now","Pour les soins graves ou urgents à l'hôpital, l'État peut payer, même sans AME. Demandez le service social de l'hôpital.","For serious or urgent care in hospital, the State can pay, even without AME. Ask for the hospital's social services.","للعلاج الخطير أو العاجل في المستشفى، يمكن للدولة أن تدفع، حتى بدون AME. اطلب الخدمة الاجتماعية في المستشفى.","برای تداوی جدی یا عاجل در شفاخانه، دولت می‌تواند پرداخت کند، حتی بدون AME. سراغ بخش خدمات اجتماعی شفاخانه را بگیرید.","په روغتون کې د جدي یا بیړنۍ درملنې لپاره، دولت کولای شي پیسې ورکړي، حتی بې له AME. د روغتون ټولنیزې خدمتونو برخه وغواړئ.");
+d("r.suv.preg","Les soins de grossesse et d'accouchement à l'hôpital peuvent en faire partie.","Pregnancy and childbirth care in hospital can be included.","يمكن أن تشمل رعاية الحمل والولادة في المستشفى.","مراقبت‌های حاملگی و ولادت در شفاخانه می‌تواند شامل آن باشد.","په روغتون کې د امیندوارۍ او زیږون پاملرنه پکې شاملېدای شي.");
+d("r.pass.now","Consultations, examens et médicaments à l'hôpital, gratuits si besoin, avec une assistante sociale qui vous aide à ouvrir vos droits.","Consultations, tests and medicines at the hospital, free if needed, with a social worker who helps you open your rights.","استشارات وفحوصات وأدوية في المستشفى، مجاناً عند الحاجة، مع مساعدة اجتماعية تساعدك على فتح حقوقك.","معاینه، آزمایش و دوا در شفاخانه، در صورت ضرورت رایگان، با یک مددکار اجتماعی که به شما برای گرفتن حقوق‌تان کمک می‌کند.","په روغتون کې معاینه، ازموینې او درمل، د اړتیا په صورت کې وړیا، د یو ټولنیز کارکوونکي سره چې ستاسو د حقونو په ترلاسه کولو کې مرسته کوي.");
+d("r.pass.visa","Certaines PASS n'accueillent pas les personnes avec un visa touriste : demandez sur place.","Some PASS clinics do not see people on a tourist visa: ask on site.","بعض عيادات PASS لا تستقبل الأشخاص الذين يحملون تأشيرة سياحية: اسأل في المكان.","بعضی از PASSها افراد با ویزه توریستی را نمی‌پذیرند: در محل بپرسید.","ځینې PASS د سیاحتي ویزې لرونکي خلک نه مني: په ځای کې وپوښتئ.");
+d("r.tsoins","Si vous avez une maladie grave qui ne peut pas être soignée dans votre pays, vous pouvez peut-être demander un titre de séjour pour soins. Faites-vous accompagner par une association.","If you have a serious illness that cannot be treated in your country, you may be able to apply for a residence permit for medical care. Get support from an association.","إذا كنت مصاباً بمرض خطير لا يمكن علاجه في بلدك، فقد تستطيع طلب إقامة للعلاج. اطلب مرافقة جمعية.","اگر بیماری جدی دارید که در کشور شما قابل تداوی نیست، شاید بتوانید اجازه اقامت برای تداوی درخواست کنید. از یک مؤسسه کمک بگیرید.","که جدي ناروغي لرئ چې ستاسو په هېواد کې یې درملنه نه کېږي، ښايي وکولای شئ د درملنې لپاره د اوسېدو اجازه وغواړئ. له یوې موسسې مرسته واخلئ.");
+d("r.assur","Utilisez d'abord l'assurance voyage obligatoire pour votre visa. En urgence grave, allez aux urgences de l'hôpital.","First use the travel insurance required for your visa. In a serious emergency, go to the hospital emergency department.","استعمل أولاً تأمين السفر الإلزامي لتأشيرتك. في حالة طارئة خطيرة، اذهب إلى قسم الطوارئ في المستشفى.","اول از بیمه سفر که برای ویزه شما الزامی است استفاده کنید. در حالت عاجل جدی، به بخش عاجل شفاخانه بروید.","لومړی هغه د سفر بیمه وکاروئ چې ستاسو د ویزې لپاره لازمي ده. په جدي بیړني حالت کې، د روغتون بیړنۍ برخې ته لاړ شئ.");
+d("r.no.above","ressources au-dessus du plafond","income above the limit","دخل فوق الحد الأقصى","عاید بالاتر از سقف","عاید له حد څخه زیات");
+d("r.no.visa","pas tant que votre visa est valable ; ensuite, 3 mois comptés depuis la fin du visa","not while your visa is valid; afterwards, 3 months counted from the end of the visa","ليس ما دامت تأشيرتك سارية؛ بعد ذلك، 3 أشهر تُحسب من تاريخ انتهاء التأشيرة","تا زمانی که ویزه معتبر است نه؛ بعد از آن، 3 ماه از ختم ویزه حساب می‌شود","تر هغه چې ویزه معتبره وي نه؛ وروسته، 3 میاشتې د ویزې له پای څخه شمېرل کېږي");
+d("r.ame.ue","Si la CPAM refuse la PUMa parce que votre séjour n'est pas considéré comme régulier, demandez l'AME.","If the CPAM refuses PUMa because your stay is not considered lawful, apply for AME.","إذا رفضت CPAM طلب PUMa لأن إقامتك لا تُعتبر نظامية، اطلب AME.","اگر CPAM درخواست PUMa را رد کند چون اقامت شما قانونی حساب نمی‌شود، AME درخواست کنید.","که CPAM د PUMa غوښتنه رد کړي ځکه چې ستاسو اوسېدل قانوني نه ګڼل کېږي، AME وغواړئ.");
+
+d("n.expired","Votre titre de séjour a expiré ? Si vous aviez la Sécurité sociale, vos droits continuent 6 mois après la fin du titre. N'arrêtez pas vos soins.","Has your residence permit expired? If you had health insurance, your rights continue for 6 months after the permit ends. Do not stop your treatment.","انتهت صلاحية بطاقة إقامتك؟ إذا كان لديك ضمان صحي، تستمر حقوقك 6 أشهر بعد انتهاء البطاقة. لا توقف علاجك.","اجازه اقامت شما ختم شده؟ اگر بیمه صحی داشتید، حقوق شما تا 6 ماه بعد از ختم اجازه اقامت ادامه دارد. تداوی خود را قطع نکنید.","ستاسو د اوسېدو اجازه لیک موده تېره شوې؟ که روغتیايي بیمه مو درلوده، ستاسو حقونه د اجازه لیک له پای وروسته 6 میاشتې دوام کوي. خپله درملنه مه پرېږدئ.");
+d("n.photo","Depuis le 1er avril 2026, un adulte doit montrer un document d'identité officiel avec photo pour demander l'AME (passeport, carte d'identité…). Vous n'en avez pas ? Parlez-en à une association avant d'aller à la CPAM.","Since 1 April 2026, adults must show an official identity document with a photo to apply for AME (passport, ID card…). You don't have one? Talk to an association before going to the CPAM.","منذ 1 أبريل 2026، يجب على البالغ تقديم وثيقة هوية رسمية بصورة لطلب AME (جواز سفر، بطاقة هوية…). ليست لديك وثيقة؟ تحدّث إلى جمعية قبل الذهاب إلى CPAM.","از 1 اپریل 2026، یک بزرگسال برای درخواست AME باید یک سند هویت رسمی با عکس نشان بدهد (پاسپورت، تذکره…). ندارید؟ قبل از رفتن به CPAM با یک مؤسسه صحبت کنید.","د 2026 کال د اپرېل له 1 نېټې راهیسې، لوی سړی یا ښځه باید د AME غوښتلو لپاره د عکس لرونکی رسمي پېژند سند وښيي (پاسپورټ، تذکره…). نه یې لرئ؟ CPAM ته له تګ مخکې له یوې موسسې سره خبرې وکړئ.");
+d("n.preg","Enceinte : la PMI (protection maternelle et infantile) propose des consultations gratuites pendant la grossesse et pour les enfants de moins de 6 ans, quelle que soit votre situation.","Pregnant: PMI centres (mother and child health) offer free check-ups during pregnancy and for children under 6, whatever your status.","للحوامل: مراكز PMI (حماية الأم والطفل) تقدم استشارات مجانية أثناء الحمل وللأطفال دون 6 سنوات، مهما كان وضعك.","حامله: مراکز PMI (حمایت از مادر و طفل) معاینه رایگان در دوران حاملگی و برای اطفال زیر 6 سال ارائه می‌کنند، وضعیت شما هر چه باشد.","امیندواره: د PMI مرکزونه (د مور او ماشوم ساتنه) د امیندوارۍ پر مهال او له 6 کلونو کم عمر ماشومانو لپاره وړیا معاینه کوي، ستاسو وضعیت هر څه چې وي.");
+d("n.dom","En outre-mer, les plafonds de ressources sont plus élevés (environ 11 %). Le calcul en tient compte.","In the overseas departments, income limits are higher (about 11%). The calculation takes this into account.","في أقاليم ما وراء البحار، الحدود القصوى للدخل أعلى (حوالي 11%). الحساب يأخذ ذلك في الاعتبار.","در مناطق ماورای بحار، سقف عاید بالاتر است (حدود 11 درصد). محاسبه این را در نظر می‌گیرد.","د سمندر هاخوا سیمو کې د عاید حدونه لوړ دي (شاوخوا 11 سلنه). حساب دا په پام کې نیسي.");
+d("n.mayotte","À Mayotte, l'AME n'existe pas et la Sécurité sociale a ses propres règles. Adressez-vous à la Caisse de sécurité sociale de Mayotte (CSSM) ou à une association. En urgence, allez à l'hôpital.","In Mayotte, AME does not exist and health insurance has its own rules. Contact the Mayotte social security office (CSSM) or an association. In an emergency, go to the hospital.","في مايوت، لا توجد AME وللضمان الصحي قواعده الخاصة. توجّه إلى صندوق الضمان الاجتماعي في مايوت (CSSM) أو إلى جمعية. في حالة طارئة، اذهب إلى المستشفى.","در مایوت، AME وجود ندارد و بیمه صحی قوانین خاص خود را دارد. به صندوق تأمین اجتماعی مایوت (CSSM) یا یک مؤسسه مراجعه کنید. در حالت عاجل، به شفاخانه بروید.","په مایوت کې AME نشته او روغتیايي بیمه خپل ځانګړي قواعد لري. د مایوت ټولنیز تامین دفتر (CSSM) یا یوې موسسې ته ورشئ. په بیړني حالت کې روغتون ته لاړ شئ.");
+
+d("pp.id","Un document d'identité officiel avec photo (pour les adultes)","An official identity document with a photo (for adults)","وثيقة هوية رسمية بصورة (للبالغين)","سند هویت رسمی با عکس (برای بزرگسالان)","د عکس لرونکی رسمي پېژند سند (د لویانو لپاره)");
+d("pp.photo","Une photo d'identité pour chaque personne de 16 ans ou plus","An ID photo for each person aged 16 or over","صورة شخصية لكل شخص عمره 16 سنة أو أكثر","یک عکس برای هر نفر 16 ساله یا بزرگتر","د هر هغه کس لپاره یو عکس چې 16 کلن یا لوی وي");
+d("pp.presence","Une preuve datée de présence en France depuis plus de 3 mois : facture, attestation d'hébergement, attestation d'association…","Dated proof that you have been in France for more than 3 months: a bill, a letter from your host, a letter from an association…","إثبات مؤرخ لوجودك في فرنسا منذ أكثر من 3 أشهر: فاتورة، شهادة إيواء، شهادة من جمعية…","سند تاریخ‌دار حضور در فرانسه بیش از 3 ماه: بل، تصدیق محل اقامت، تصدیق مؤسسه…","په فرانسه کې له 3 میاشتو د زیات شتون نېټه لرونکی ثبوت: بل، د استوګنې تصدیق، د موسسې تصدیق…");
+d("pp.adresse","Une adresse : votre domicile, ou une domiciliation (CCAS ou association agréée)","An address: your home, or a postal address from a CCAS or an approved association (domiciliation)","عنوان: مسكنك، أو عنوان بريدي لدى CCAS أو جمعية معتمدة (domiciliation)","یک آدرس: خانه شما، یا آدرس پستی نزد CCAS یا یک مؤسسه مجاز (domiciliation)","یو پته: ستاسو کور، یا د CCAS یا یوې منل شوې موسسې پوستي پته (domiciliation)");
+d("pp.ress","Vos ressources des 12 derniers mois (ou une déclaration si vous n'avez rien)","Your income for the last 12 months (or a statement if you have none)","دخلك خلال آخر 12 شهراً (أو تصريح إذا لم يكن لديك شيء)","عاید شما در 12 ماه گذشته (یا یک اظهارنامه اگر هیچ عایدی ندارید)","ستاسو د تېرو 12 میاشتو عاید (یا یوه اعلامیه که هېڅ نه لرئ)");
+d("pp.soins90","Si vous avez été soigné dans les 90 jours avant la demande : un papier médical avec la date des soins","If you received care in the 90 days before applying: a medical paper showing the date of care","إذا تلقيت علاجاً خلال 90 يوماً قبل الطلب: ورقة طبية تبيّن تاريخ العلاج","اگر در 90 روز قبل از درخواست تداوی شده‌اید: یک سند طبی با تاریخ تداوی","که د غوښتنې څخه 90 ورځې مخکې درملنه شوې وي: یوه طبي پاڼه د درملنې د نېټې سره");
+d("pp.titre","Votre titre de séjour, récépissé ou attestation de demande d'asile","Your residence permit, receipt or asylum claim certificate","بطاقة إقامتك، أو الوصل، أو شهادة طلب اللجوء","اجازه اقامت، رسید یا تصدیق درخواست پناهندگی","د اوسېدو اجازه لیک، رسید یا د پناه غوښتنې تصدیق");
+d("pp.idbase","Une pièce d'identité ou un acte de naissance","An ID document or a birth certificate","وثيقة هوية أو شهادة ميلاد","سند هویت یا تصدیق تولد","پېژند سند یا د زیږون سند");
+d("pp.c2sress","Pour la C2S : vos ressources des 12 derniers mois","For C2S: your income for the last 12 months","لـ C2S: دخلك خلال آخر 12 شهراً","برای C2S: عاید شما در 12 ماه گذشته","د C2S لپاره: ستاسو د تېرو 12 میاشتو عاید");
+d("w.ame","À l'accueil de la CPAM de votre lieu de vie. La première demande se dépose en personne, ou par le service social de l'hôpital.","At the CPAM office where you live. The first application must be handed in in person, or through the hospital's social services.","في مكتب استقبال CPAM في مكان سكنك. يُقدَّم الطلب الأول شخصياً، أو عن طريق الخدمة الاجتماعية في المستشفى.","در دفتر پذیرش CPAM محل زندگی شما. درخواست اول باید شخصاً تحویل داده شود، یا از طریق بخش خدمات اجتماعی شفاخانه.","د خپل استوګنځي د CPAM دفتر کې. لومړۍ غوښتنه باید په خپله وسپارل شي، یا د روغتون د ټولنیزو خدمتونو له لارې.");
+d("w.puma","À la CPAM de votre lieu de vie, par courrier ou à l'accueil. Une association, un CCAS ou un France Services peut vous aider à remplir le dossier.","At the CPAM where you live, by post or at the front desk. An association, a CCAS or a France Services office can help you fill in the forms.","في CPAM مكان سكنك، بالبريد أو في مكتب الاستقبال. يمكن لجمعية أو CCAS أو مكتب France Services مساعدتك في ملء الملف.","در CPAM محل زندگی شما، از طریق پست یا در دفتر پذیرش. یک مؤسسه، CCAS یا دفتر France Services می‌تواند در پر کردن فورم به شما کمک کند.","د خپل استوګنځي په CPAM کې، د پوستې له لارې یا د استقبال په دفتر کې. یوه موسسه، CCAS یا د France Services دفتر کولای شي د فورمو په ډکولو کې مرسته وکړي.");
+d("w.suv","Au service social ou au bureau des admissions de l'hôpital qui vous soigne.","At the social services or admissions office of the hospital treating you.","في الخدمة الاجتماعية أو مكتب القبول في المستشفى الذي يعالجك.","در بخش خدمات اجتماعی یا دفتر پذیرش شفاخانه‌ای که شما را تداوی می‌کند.","د هغه روغتون په ټولنیزو خدمتونو یا د داخلې دفتر کې چې ستاسو درملنه کوي.");
+d("w.pass","Dans un hôpital public : demandez « la PASS » à l'accueil. Une phrase prête à montrer est dans « Phrases à montrer ».","In a public hospital: ask for « la PASS » at the reception. A ready-made phrase is in « Phrases to show ».","في مستشفى عام: اطلب «la PASS» في الاستقبال. توجد عبارة جاهزة في «عبارات للعرض».","در یک شفاخانه دولتی: در پذیرش « la PASS » را بخواهید. یک جمله آماده در « جملات برای نشان دادن » است.","په دولتي روغتون کې: د استقبال څخه « la PASS » وغواړئ. یوه چمتو جمله په « د ښودلو جملې » کې ده.");
+d("w.tsoins","À la préfecture, avec l'aide d'une association (La Cimade, Comede…).","At the préfecture, with help from an association (La Cimade, Comede…).","في المحافظة (préfecture)، بمساعدة جمعية (La Cimade، Comede…).","در ولایت (préfecture)، با کمک یک مؤسسه (La Cimade، Comede…).","په ولایت (préfecture) کې، د یوې موسسې په مرسته (La Cimade، Comede…).");
+
+/* Fiches */
+d("aides.all","Toutes les aides","All types of help","كل المساعدات","همه کمک‌ها","ټولې مرستې");
+d("f.what","C'est quoi ?","What is it?","ما هي؟","چیست؟","دا څه دی؟");
+d("f.who","Pour qui ?","Who is it for?","لمن؟","برای کی؟","د چا لپاره؟");
+d("f.how","Comment faire ?","How to apply?","كيف أطلبها؟","چطور درخواست کنم؟","څنګه یې وغواړم؟");
+d("f.pro","Informations pour les professionnels (en français)","Information for professionals (in French)","معلومات للمهنيين (بالفرنسية)","معلومات برای متخصصان (به فرانسوی)","د مسلکي کسانو لپاره معلومات (په فرانسوي)");
+d("puma.what","L'assurance maladie de base. Elle rembourse une grande partie des soins : médecin, pharmacie, hôpital.","Basic health insurance. It pays back a large part of the costs: doctor, pharmacy, hospital.","التأمين الصحي الأساسي. يغطي جزءاً كبيراً من التكاليف: الطبيب، الصيدلية، المستشفى.","بیمه صحی اساسی. بخش بزرگی از هزینه‌ها را می‌پردازد: داکتر، دواخانه، شفاخانه.","اساسي روغتیايي بیمه. د لګښتونو لویه برخه ورکوي: ډاکټر، درملتون، روغتون.");
+d("puma.who","Les personnes qui travaillent en France, ou qui y vivent depuis plus de 3 mois avec des papiers : titre de séjour, récépissé, demande d'asile.","People who work in France, or who have lived here for more than 3 months with papers: residence permit, receipt, asylum claim.","الأشخاص الذين يعملون في فرنسا، أو يعيشون فيها منذ أكثر من 3 أشهر بأوراق: بطاقة إقامة، وصل، طلب لجوء.","کسانی که در فرانسه کار می‌کنند، یا بیش از 3 ماه با مدارک در آنجا زندگی می‌کنند: اجازه اقامت، رسید، درخواست پناهندگی.","هغه کسان چې په فرانسه کې کار کوي، یا له 3 میاشتو زیات له اسنادو سره هلته اوسېږي: د اوسېدو اجازه لیک، رسید، د پناه غوښتنه.");
+d("puma.how","Faites la demande à la CPAM, avec le formulaire de demande d'ouverture des droits.","Apply to the CPAM with the form to open your rights.","قدّم الطلب إلى CPAM باستمارة فتح الحقوق.","با فورم باز کردن حقوق به CPAM درخواست بدهید.","CPAM ته د حقونو د پرانیستلو د فورمې سره غوښتنه ورکړئ.");
+d("c2s.what","Une complémentaire santé publique. Avec la PUMa, vous ne payez plus rien chez le médecin, à la pharmacie ou à l'hôpital, dans les tarifs de la Sécurité sociale.","A public top-up cover. With PUMa, you pay nothing at the doctor, pharmacy or hospital, within standard health insurance rates.","تغطية صحية تكميلية عامة. مع PUMa، لا تدفع شيئاً عند الطبيب أو في الصيدلية أو المستشفى، في حدود تعريفات الضمان الصحي.","یک بیمه تکمیلی دولتی. همراه با PUMa، نزد داکتر، در دواخانه یا شفاخانه چیزی نمی‌پردازید، در حدود نرخ‌های بیمه صحی.","یوه دولتي بشپړونکې بیمه. د PUMa سره، د ډاکټر، درملتون یا روغتون کې څه نه ورکوئ، د روغتیايي بیمې د نرخونو په حد کې.");
+d("c2s.who","Les personnes qui ont la PUMa et de faibles ressources. Gratuite jusqu'à 10 421 € par an pour une personne seule ; petite participation jusqu'à 14 069 €.","People who have PUMa and a low income. Free up to 10 421 € a year for one person; a small monthly contribution up to 14 069 €.","الأشخاص الذين لديهم PUMa ودخل منخفض. مجانية حتى 10 421 € سنوياً لشخص واحد؛ بمساهمة صغيرة حتى 14 069 €.","کسانی که PUMa و عاید کم دارند. رایگان تا 10 421 € در سال برای یک نفر؛ با سهم کوچک تا 14 069 €.","هغه کسان چې PUMa او کم عاید لري. د یو کس لپاره تر 10 421 € پورې په کال کې وړیا؛ د کوچنۍ ونډې سره تر 14 069 € پورې.");
+d("c2s.how","Faites la demande à la CPAM, sur ameli.fr ou avec le formulaire papier.","Apply to the CPAM, online at ameli.fr or with the paper form.","قدّم الطلب إلى CPAM، عبر ameli.fr أو بالاستمارة الورقية.","به CPAM درخواست بدهید، در ameli.fr یا با فورم کاغذی.","CPAM ته غوښتنه ورکړئ، په ameli.fr کې یا د کاغذي فورمې سره.");
+d("ame.what","Pour les personnes sans titre de séjour. Elle paie les soins à 100 %, dans les tarifs de la Sécurité sociale, sans avancer d'argent.","For people without a residence permit. It pays 100% of care, within standard rates, with nothing to pay upfront.","للأشخاص بدون بطاقة إقامة. تدفع العلاج بنسبة 100%، في حدود التعريفات، دون دفع مسبق.","برای کسانی که اجازه اقامت ندارند. صد در صد هزینه تداوی را در حدود نرخ‌ها می‌پردازد، بدون پرداخت پیشکی.","د هغو کسانو لپاره چې د اوسېدو اجازه نه لري. د درملنې سل په سلو کې لګښت د نرخونو په حد کې ورکوي، پرته له مخکې تادیې.");
+d("ame.who","Plus de 3 mois de vie en France sans interruption, et des ressources sous 10 421 € par an pour une personne seule. Les enfants y ont droit sans attendre.","More than 3 months living in France without a break, and income under 10 421 € a year for one person. Children are entitled without waiting.","أكثر من 3 أشهر من العيش في فرنسا دون انقطاع، ودخل أقل من 10 421 € سنوياً لشخص واحد. للأطفال الحق دون انتظار.","بیش از 3 ماه زندگی بدون وقفه در فرانسه، و عاید کمتر از 10 421 € در سال برای یک نفر. اطفال بدون انتظار حق دارند.","له 3 میاشتو زیات بې وقفې په فرانسه کې ژوند، او د یو کس لپاره په کال کې له 10 421 € کم عاید. ماشومان بې انتظاره حق لري.");
+d("ame.how","Première demande en personne à la CPAM. Depuis le 1er avril 2026, un document d'identité avec photo est obligatoire pour les adultes. Valable 1 an, à renouveler.","First application in person at the CPAM. Since 1 April 2026, adults must bring an ID document with a photo. Valid for 1 year, then renew.","الطلب الأول شخصياً في CPAM. منذ 1 أبريل 2026، وثيقة الهوية بصورة إلزامية للبالغين. صالحة سنة واحدة ثم تُجدَّد.","درخواست اول شخصاً در CPAM. از 1 اپریل 2026، سند هویت با عکس برای بزرگسالان الزامی است. یک سال اعتبار دارد، بعد تمدید شود.","لومړۍ غوښتنه په خپله په CPAM کې. د 2026 د اپرېل له 1 راهیسې، د لویانو لپاره د عکس لرونکی پېژند سند لازمي دی. یو کال اعتبار لري، بیا یې نوي کړئ.");
+d("suv.what","L'hôpital peut faire payer par l'État les soins urgents des personnes sans titre de séjour qui n'ont pas l'AME.","The hospital can have the State pay for urgent care for people without a residence permit who do not have AME.","يمكن للمستشفى أن يطلب من الدولة دفع تكاليف العلاج العاجل للأشخاص بدون بطاقة إقامة الذين ليست لديهم AME.","شفاخانه می‌تواند هزینه تداوی عاجل کسانی را که اجازه اقامت و AME ندارند از دولت بگیرد.","روغتون کولای شي د هغو کسانو د بیړنۍ درملنې لګښت له دولت څخه واخلي چې د اوسېدو اجازه او AME نه لري.");
+d("suv.who","Les personnes sans titre de séjour en France depuis moins de 3 mois, ou qui n'ont pas droit à l'AME, quand sans soins leur vie ou leur santé serait gravement en danger.","People without a residence permit who have been in France less than 3 months, or who are not entitled to AME, when without care their life or health would be seriously at risk.","الأشخاص بدون بطاقة إقامة الموجودون في فرنسا منذ أقل من 3 أشهر، أو الذين لا يحق لهم AME، عندما تكون حياتهم أو صحتهم في خطر جدي بدون علاج.","کسانی که اجازه اقامت ندارند و کمتر از 3 ماه در فرانسه هستند، یا حق AME ندارند، وقتی که بدون تداوی زندگی یا صحت‌شان در خطر جدی باشد.","هغه کسان چې د اوسېدو اجازه نه لري او له 3 میاشتو کم په فرانسه کې دي، یا د AME حق نه لري، کله چې بې درملنې یې ژوند یا روغتیا په جدي خطر کې وي.");
+d("suv.how","Rien à demander à l'avance : c'est l'hôpital qui fait la démarche. Parlez au service social pour qu'il la fasse.","Nothing to apply for in advance: the hospital makes the request. Talk to the social services so they do it.","لا شيء تطلبه مسبقاً: المستشفى هو الذي يقوم بالإجراء. تحدّث إلى الخدمة الاجتماعية ليقوموا به.","از قبل چیزی برای درخواست نیست: شفاخانه این کار را انجام می‌دهد. با بخش خدمات اجتماعی صحبت کنید تا این کار را بکنند.","مخکې څه غوښتلو ته اړتیا نشته: روغتون دا کار کوي. له ټولنیزو خدمتونو سره خبرې وکړئ چې دا کار وکړي.");
+d("pass.what","Un service de l'hôpital public pour les personnes qui ont du mal à se soigner : consultations, examens, médicaments, et l'aide d'une assistante sociale.","A public hospital service for people who struggle to get care: consultations, tests, medicines, and help from a social worker.","خدمة في المستشفى العام للأشخاص الذين يجدون صعوبة في العلاج: استشارات، فحوصات، أدوية، ومساعدة من مساعدة اجتماعية.","یک خدمت شفاخانه دولتی برای کسانی که برای تداوی مشکل دارند: معاینه، آزمایش، دوا، و کمک یک مددکار اجتماعی.","د دولتي روغتون یو خدمت د هغو کسانو لپاره چې درملنې ته لاسرسی ورته ستونزمن دی: معاینه، ازموینې، درمل، او د ټولنیز کارکوونکي مرسته.");
+d("pass.who","Toute personne sans couverture maladie, avec une couverture incomplète, ou en grande précarité.","Anyone without health cover, with incomplete cover, or in great hardship.","كل شخص بدون تغطية صحية، أو بتغطية ناقصة، أو في وضع هشاشة شديدة.","هر کسی که بیمه صحی ندارد، بیمه ناقص دارد، یا در وضعیت بسیار دشوار است.","هر هغه کس چې روغتیايي بیمه نه لري، نیمګړې بیمه لري، یا په ډېر سخت حالت کې دی.");
+d("pass.how","Allez à l'accueil d'un hôpital public et demandez la PASS. Souvent sans rendez-vous. La gratuité est décidée après un entretien avec l'équipe.","Go to the reception of a public hospital and ask for the PASS. Often no appointment needed. Free care is decided after a talk with the team.","اذهب إلى استقبال مستشفى عام واطلب PASS. غالباً دون موعد. يُقرَّر العلاج المجاني بعد مقابلة مع الفريق.","به پذیرش یک شفاخانه دولتی بروید و PASS را بخواهید. اکثراً بدون وقت قبلی. رایگان بودن بعد از گفتگو با تیم تصمیم گرفته می‌شود.","د دولتي روغتون استقبال ته لاړ شئ او PASS وغواړئ. اکثره وخت بې له وخت نیولو. د وړیا درملنې پرېکړه د ټیم سره له خبرو وروسته کېږي.");
+d("tsoins.what","Une carte de séjour pour une personne gravement malade, quand le traitement n'est pas accessible dans son pays.","A residence permit for a seriously ill person, when treatment is not available in their country.","بطاقة إقامة لشخص مصاب بمرض خطير، عندما لا يكون العلاج متاحاً في بلده.","یک اجازه اقامت برای شخصی که بیماری جدی دارد، وقتی تداوی در کشورش در دسترس نیست.","د اوسېدو اجازه د هغه کس لپاره چې جدي ناروغ دی، کله چې په خپل هېواد کې درملنې ته لاسرسی نه لري.");
+d("tsoins.who","Les personnes étrangères (hors Union européenne) qui vivent en France avec une maladie grave. Possible même sans papiers.","Foreign nationals (outside the EU) living in France with a serious illness. Possible even without papers.","الأجانب (من خارج الاتحاد الأوروبي) الذين يعيشون في فرنسا بمرض خطير. ممكن حتى بدون أوراق.","خارجی‌ها (خارج از اتحادیه اروپا) که با بیماری جدی در فرانسه زندگی می‌کنند. حتی بدون مدارک هم ممکن است.","بهرني کسان (د اروپايي اتحادیې نه بهر) چې په فرانسه کې له جدي ناروغۍ سره ژوند کوي. حتی بې اسنادو هم ممکنه ده.");
+d("tsoins.how","Demande à la préfecture, puis certificat médical envoyé à l'OFII. Des médecins donnent un avis, le préfet décide. Faites-vous accompagner.","Apply at the préfecture, then a medical certificate is sent to OFII. Doctors give an opinion and the prefect decides. Get support.","الطلب في المحافظة، ثم تُرسل شهادة طبية إلى OFII. يعطي أطباء رأيهم، ويقرّر المحافظ. اطلب المرافقة.","درخواست در ولایت، بعد تصدیق طبی به OFII فرستاده می‌شود. داکتران نظر می‌دهند و والی تصمیم می‌گیرد. کمک بگیرید.","غوښتنه په ولایت کې، بیا طبي تصدیق OFII ته لېږل کېږي. ډاکټران نظر ورکوي او والي پرېکړه کوي. مرسته واخلئ.");
+
+/* Phrases */
+d("ph.intro","Montrez la phrase en français à l'accueil. Le bouton l'affiche en très grand.","Show the French phrase at the desk. The button displays it in very large print.","اعرض العبارة الفرنسية في الاستقبال. الزر يعرضها بخط كبير جداً.","جمله فرانسوی را در پذیرش نشان بدهید. دکمه آن را خیلی بزرگ نشان می‌دهد.","فرانسوي جمله په استقبال کې وښیئ. تڼۍ یې په ډېر لوی خط ښيي.");
+d("ph.big","Montrer en grand","Show large","عرض بخط كبير","بزرگ نشان بده","لوی یې وښیه");
+d("ph.close","Fermer","Close","إغلاق","بستن","بندول");
+d("ph1","Hello. I have no health cover. I would like to see the PASS (the hospital's free care service), please.","Hello. I have no health cover. I would like to see the PASS (the hospital's free care service), please.","مرحباً. ليست لدي تغطية صحية. أريد أن أرى PASS (خدمة الوصول إلى العلاج)، من فضلك.","سلام. من بیمه صحی ندارم. می‌خواهم به PASS (خدمت دسترسی به تداوی) بروم، لطفاً.","سلام. زه روغتیايي بیمه نه لرم. غواړم PASS (د درملنې د لاسرسي خدمت) ته ورشم، مهرباني وکړئ.");
+d("ph2","I need an interpreter, please. My language: English.","I need an interpreter, please. My language: English.","أحتاج إلى مترجم، من فضلك. لغتي: العربية.","به یک ترجمان ضرورت دارم، لطفاً. زبان من: دری.","ژباړونکي ته اړتیا لرم، مهرباني وکړئ. زما ژبه: پښتو.");
+d("ph3","I would like to hand in an application for State medical aid (AME). Can you give me proof that I handed it in?","I would like to hand in an application for State medical aid (AME). Can you give me proof that I handed it in?","أريد تقديم طلب المساعدة الطبية الحكومية (AME). هل يمكنكم إعطائي إثباتاً بالإيداع؟","می‌خواهم درخواست کمک طبی دولت (AME) را تحویل بدهم. می‌توانید یک رسید تحویل به من بدهید؟","غواړم د دولت د طبي مرستې (AME) غوښتنه وسپارم. کولای شئ ما ته د سپارلو رسید راکړئ؟");
+d("ph4","I would like to speak to the hospital social worker, please.","I would like to speak to the hospital social worker, please.","أريد التحدث مع المساعدة الاجتماعية في المستشفى، من فضلك.","می‌خواهم با مددکار اجتماعی شفاخانه صحبت کنم، لطفاً.","غواړم د روغتون له ټولنیز کارکوونکي سره خبرې وکړم، مهرباني وکړئ.");
+d("ph5","I don't understand well. Can you write it down, or speak more slowly?","I don't understand well. Can you write it down, or speak more slowly?","لا أفهم جيداً. هل يمكنك كتابته، أو التحدث ببطء أكثر؟","خوب نمی‌فهمم. می‌توانید آن را بنویسید، یا آهسته‌تر صحبت کنید؟","ښه نه پوهېږم. کولای شئ ولیکئ، یا ورو خبرې وکړئ؟");
+
+/* Contacts */
+d("ct.urg","En cas d'urgence","In an emergency","في حالة الطوارئ","در حالت عاجل","په بیړني حالت کې");
+d("ct.other","Autres numéros","Other numbers","أرقام أخرى","شماره‌های دیگر","نورې شمېرې");
+d("ct.orgs","Associations et sites","Associations and websites","جمعيات ومواقع","مؤسسه‌ها و وبسایت‌ها","موسسې او ویب پاڼې");
+d("num15","Urgence médicale (SAMU)","Medical emergency (SAMU)","طوارئ طبية (SAMU)","عاجل طبی (SAMU)","طبي بیړنی حالت (SAMU)");
+d("num112","Urgence, depuis n'importe quel téléphone","Emergency, from any phone","طوارئ، من أي هاتف","عاجل، از هر تیلفون","بیړنی حالت، له هر تلیفون څخه");
+d("num114","Urgence par SMS, si vous ne pouvez pas parler ou entendre","Emergency by text message, if you cannot speak or hear","طوارئ عبر رسالة نصية، إذا كنت لا تستطيع الكلام أو السمع","عاجل از طریق پیام کوتاه، اگر نمی‌توانید صحبت کنید یا بشنوید","د لنډ پیغام له لارې بیړنی حالت، که خبرې نشئ کولای یا نه اورئ");
+d("num115","Hébergement d'urgence","Emergency shelter","إيواء طارئ","سرپناه عاجل","بیړنی سرپناه");
+d("num119","Enfant en danger","Child in danger","طفل في خطر","طفل در خطر","ماشوم په خطر کې");
+d("num3646","Assurance maladie (en français)","Health insurance (in French)","التأمين الصحي (بالفرنسية)","بیمه صحی (به فرانسوی)","روغتیايي بیمه (په فرانسوي)");
+d("org.mdm","Centres de soins gratuits et aide pour la demande d'AME, dans de nombreuses villes.","Free health centres and help with AME applications, in many cities.","مراكز علاج مجانية ومساعدة في طلب AME، في مدن كثيرة.","مراکز تداوی رایگان و کمک برای درخواست AME، در بسیاری از شهرها.","وړیا روغتیايي مرکزونه او د AME غوښتنې کې مرسته، په ډېرو ښارونو کې.");
+d("org.comede","Soins et accompagnement des personnes exilées, avec interprètes (Paris, Marseille, Saint-Étienne, Cayenne).","Care and support for exiled people, with interpreters (Paris, Marseille, Saint-Étienne, Cayenne).","علاج ومرافقة للمنفيين، مع مترجمين (باريس، مرسيليا، سانت إتيان، كايين).","تداوی و همراهی مهاجران، با ترجمان (پاریس، مارسی، سنت اتین، کاین).","د کډوالو درملنه او ملاتړ، د ژباړونکو سره (پاریس، مارسی، سنت اتین، کاین).");
+d("org.cimade","Permanences pour les droits des personnes étrangères.","Drop-in advice on the rights of foreign nationals.","مداومات استشارية لحقوق الأجانب.","مشوره برای حقوق خارجی‌ها.","د بهرنیانو د حقونو لپاره مشوره.");
+d("org.domasile","Domiciliation et accès aux droits des personnes exilées (Île-de-France).","Postal address and access to rights for exiled people (Paris region).","عنوان بريدي ومساعدة في الحقوق للمنفيين (منطقة باريس).","آدرس پستی و دسترسی به حقوق برای مهاجران (منطقه پاریس).","د کډوالو لپاره پوستي پته او حقونو ته لاسرسی (د پاریس سیمه).");
+d("org.refinfo","Fiches pratiques pour les personnes réfugiées, en anglais, arabe, pachto, persan et tigrinya.","Practical guides for refugees, in English, Arabic, Pashto, Persian and Tigrinya.","بطاقات عملية للاجئين، بالإنجليزية والعربية والبشتو والفارسية والتغرينية.","رهنمودهای عملی برای پناهندگان، به انگلیسی، عربی، پشتو، فارسی و تیگرینیا.","د کډوالو لپاره عملي لارښودونه، په انګلیسي، عربي، پښتو، فارسي او تیګرینیا.");
+d("org.watizat","Guide papier mis à jour régulièrement (Paris, Lyon, Toulouse…), en plusieurs langues.","Printed guide updated regularly (Paris, Lyon, Toulouse…), in several languages.","دليل ورقي يُحدَّث بانتظام (باريس، ليون، تولوز…)، بعدة لغات.","رهنمای کاغذی که به طور منظم به‌روز می‌شود (پاریس، لیون، تولوز…)، به چند زبان.","کاغذي لارښود چې په منظم ډول تازه کېږي (پاریس، لیون، تولوز…)، په څو ژبو.");
+d("org.ameli","Le site officiel de l'Assurance maladie (en français).","Official health insurance website (in French).","الموقع الرسمي للتأمين الصحي (بالفرنسية).","وبسایت رسمی بیمه صحی (به فرانسوی).","د روغتیايي بیمې رسمي ویب پاڼه (په فرانسوي).");
+d("ct.pass","Une PASS près de chez vous : demandez à l'accueil de n'importe quel hôpital public, ou cherchez l'annuaire de votre agence régionale de santé (ARS).","A PASS near you: ask at the reception of any public hospital, or look up your regional health agency (ARS) directory.","PASS قريبة منك: اسأل في استقبال أي مستشفى عام، أو ابحث في دليل الوكالة الإقليمية للصحة (ARS).","یک PASS نزدیک شما: در پذیرش هر شفاخانه دولتی بپرسید، یا در فهرست اداره صحی ساحوی (ARS) جستجو کنید.","ستاسو سره نږدې PASS: د هر دولتي روغتون په استقبال کې وپوښتئ، یا د سیمه ییزې روغتیايي ادارې (ARS) لېست وګورئ.");
+d("src.title","Sources (en français)","Sources (in French)","المصادر (بالفرنسية)","منابع (به فرانسوی)","سرچینې (په فرانسوي)");
+d("src.checked","Règles vérifiées le 24 octobre 2026. Elles changent souvent : vérifiez auprès de la CPAM ou d'une association.","Rules checked on 24 October 2026. They change often: check with the CPAM or an association.","تم التحقق من القواعد في 24 أكتوبر 2026. تتغير كثيراً: تحقق لدى CPAM أو جمعية.","قوانین در 24 اکتوبر 2026 بررسی شد. اکثراً تغییر می‌کنند: از CPAM یا یک مؤسسه بپرسید.","قواعد د 2026 د اکتوبر په 24 وکتل شول. ډېر ځله بدلېږي: له CPAM یا یوې موسسې وپوښتئ.");
+d("foot","Prototype de travail. Ce site ne remplace pas l'avis d'un professionnel du droit ou du soin.","Working prototype. This site does not replace advice from a legal or health professional.","نموذج عمل أولي. هذا الموقع لا يغني عن رأي مختص قانوني أو صحي.","نمونه آزمایشی. این سایت جای مشوره یک متخصص حقوقی یا صحی را نمی‌گیرد.","ازمایښتي نمونه. دا ویب پاڼه د حقوقي یا روغتیايي متخصص د مشورې ځای نه نیسي.");
+
+/* Où me soigner */
+d("home.lieux","Où me soigner ?","Where can I get care?","أين أتلقى العلاج؟","کجا تداوی شوم؟","چېرته درملنه وکړم؟");
+d("home.lieux.sub","Les lieux de soin près de chez vous, selon votre besoin.","Places to get care near you, depending on what you need.","أماكن العلاج القريبة منك، حسب حاجتك.","مراکز تداوی نزدیک شما، نظر به ضرورت‌تان.","ستاسو سره نږدې د درملنې ځایونه، ستاسو د اړتیا له مخې.");
+d("loc.label","Où êtes-vous ? Votre code postal ou votre ville","Where are you? Your postcode or town","أين أنت؟ الرمز البريدي أو المدينة","کجا هستید؟ کد پستی یا شهر شما","تاسو چېرته یاست؟ ستاسو پوستي کوډ یا ښار");
+d("loc.ok","Valider","OK","تأكيد","تأیید","تایید");
+d("loc.set","Lieux près de : {x}","Places near: {x}","أماكن قريبة من: {x}","مراکز نزدیک: {x}","نږدې ځایونه: {x}");
+d("loc.change","Changer","Change","تغيير","تغییر","بدلول");
+d("loc.private","Votre ville n'est pas enregistrée.","Your town is not saved.","لا تُحفظ مدينتك.","شهر شما ذخیره نمی‌شود.","ستاسو ښار نه ساتل کېږي.");
+d("loc.loading","Chargement des adresses…","Loading addresses…","جارٍ تحميل العناوين…","در حال بارگذاری آدرس‌ها…","پتې بارېږي…");
+d("loc.notfound","Ville ou code postal introuvable. Vérifiez l'orthographe.","Town or postcode not found. Check the spelling.","لم يتم العثور على المدينة أو الرمز البريدي. تحقق من الكتابة.","شهر یا کد پستی پیدا نشد. املا را بررسی کنید.","ښار یا پوستي کوډ ونه موندل شو. لیکنه وګورئ.");
+d("loc.choose","Plusieurs villes portent ce nom. Laquelle ?","Several towns have this name. Which one?","هناك عدة مدن بهذا الاسم. أيها؟","چند شهر این نام را دارند. کدام یک؟","څو ښارونه دا نوم لري. کوم یو؟");
+d("grp.common","Le plus courant","Most common","الأكثر شيوعاً","رایج‌ترین","تر ټولو عام");
+d("grp.special","Besoins particuliers","Specific needs","احتياجات خاصة","ضرورت‌های خاص","ځانګړې اړتیاوې");
+d("free.badge","Gratuit, quelle que soit votre situation","Free, whatever your status","مجاني، مهما كان وضعك","رایگان، وضعیت شما هر چه باشد","وړیا، ستاسو وضعیت هر څه چې وي");
+d("map.btn","Voir sur une carte près de {x}","See on a map near {x}","عرض على الخريطة قرب {x}","دیدن روی نقشه نزدیک {x}","په نقشه کې د {x} سره نږدې وګورئ");
+d("map.btn0","Voir sur une carte","See on a map","عرض على الخريطة","دیدن روی نقشه","په نقشه کې وګورئ");
+d("map.note","La carte s'ouvre sur Google Maps, un site extérieur.","The map opens in Google Maps, an outside website.","تُفتح الخريطة على Google Maps، وهو موقع خارجي.","نقشه در Google Maps باز می‌شود، یک سایت بیرونی.","نقشه په Google Maps کې پرانیستل کېږي، چې یوه بهرنۍ ویب پاڼه ده.");
+d("near.title","Les plus proches","Nearest","الأقرب","نزدیک‌ترین","تر ټولو نږدې");
+d("near.km","à {d} km","{d} km away","على بعد {d} كم","{d} کیلومتر دورتر","{d} کیلومتره لرې");
+d("near.closest","Le plus proche : {d} km","Nearest: {d} km","الأقرب: {d} كم","نزدیک‌ترین: {d} کیلومتر","تر ټولو نږدې: {d} کیلومتره");
+d("near.tel","Tél.","Tel.","هاتف","تیلفون","تلیفون");
+d("near.call","Appelez avant d'y aller : les horaires changent.","Call before you go: opening hours change.","اتصل قبل الذهاب: تتغير المواعيد.","قبل از رفتن زنگ بزنید: ساعات کاری تغییر می‌کند.","مخکې له تګه زنګ ووهئ: د کار وختونه بدلېږي.");
+d("near.hosp","Ce sont des hôpitaux publics. Tous n'ont pas de PASS ou de service d'urgences : appelez avant.","These are public hospitals. Not all have a PASS or an emergency department: call first.","هذه مستشفيات عامة. ليست كلها فيها PASS أو قسم طوارئ: اتصل قبل الذهاب.","این‌ها شفاخانه‌های دولتی هستند. همه آنها PASS یا بخش عاجل ندارند: قبل از رفتن زنگ بزنید.","دا دولتي روغتونونه دي. ټول یې PASS یا بیړنۍ برخه نه لري: مخکې زنګ ووهئ.");
+d("near.child","pour les enfants","for children","للأطفال","برای اطفال","د ماشومانو لپاره");
+d("near.source","Adresses : annuaire officiel FINESS (mai 2026). La liste n'est pas complète et une adresse peut avoir changé : la carte peut montrer d'autres lieux.","Addresses: official FINESS directory (May 2026). The list is not complete and an address may have changed: the map can show other places.","العناوين: الدليل الرسمي FINESS (مايو 2026). القائمة ليست كاملة وقد يكون العنوان قد تغيّر: يمكن أن تُظهر الخريطة أماكن أخرى.","آدرس‌ها: فهرست رسمی FINESS (می 2026). فهرست کامل نیست و ممکن است یک آدرس تغییر کرده باشد: نقشه می‌تواند مراکز دیگری نشان بدهد.","پتې: د FINESS رسمي لېست (می 2026). لېست بشپړ نه دی او کېدای شي یوه پته بدله شوې وي: نقشه کولای شي نور ځایونه وښيي.");
+d("near.more","Voir plus d'adresses","Show more addresses","عرض المزيد من العناوين","آدرس‌های بیشتر","نورې پتې وګورئ");
+d("near.none","L'annuaire n'a pas d'adresse à moins de 50 km. Utilisez la carte, ou demandez à l'hôpital public le plus proche.","The directory has no address within 50 km. Use the map, or ask at the nearest public hospital.","لا يحتوي الدليل على عنوان على بعد أقل من 50 كم. استخدم الخريطة، أو اسأل في أقرب مستشفى عام.","فهرست هیچ آدرسی در کمتر از 50 کیلومتر ندارد. از نقشه استفاده کنید، یا از نزدیک‌ترین شفاخانه دولتی بپرسید.","په لېست کې له 50 کیلومترو په واټن کې هېڅ پته نشته. نقشه وکاروئ، یا له نږدې دولتي روغتون څخه وپوښتئ.");
+d("near.nodata","Les adresses n'ont pas pu être chargées. Utilisez la carte.","The addresses could not be loaded. Use the map.","تعذّر تحميل العناوين. استخدم الخريطة.","آدرس‌ها بارگذاری نشد. از نقشه استفاده کنید.","پتې بار نشوې. نقشه وکاروئ.");
+d("near.ask","Indiquez votre ville plus haut pour voir les adresses les plus proches.","Enter your town above to see the nearest addresses.","أدخل مدينتك في الأعلى لرؤية أقرب العناوين.","شهر خود را در بالا وارد کنید تا نزدیک‌ترین آدرس‌ها را ببینید.","پورته خپل ښار ولیکئ ترڅو نږدې پتې وګورئ.");
+d("links.useful","Sites utiles","Useful websites","مواقع مفيدة","سایت‌های مفید","ګټورې ویب پاڼې");
+d("res.near","Trouver près de chez moi","Find one near me","ابحث عن مكان قريب مني","نزدیک من پیدا کن","زما سره نږدې یې پیدا کړئ");
+
+d("need.medecin","Voir un médecin","See a doctor","رؤية طبيب","دیدن داکتر","ډاکټر لیدل");
+d("need.medecin.d","Un médecin généraliste ou un centre de santé. Il vous orientera vers un spécialiste si besoin.","A general practitioner or a health centre. They will refer you to a specialist if needed.","طبيب عام أو مركز صحي. سيحوّلك إلى طبيب اختصاصي إذا لزم الأمر.","یک داکتر عمومی یا یک مرکز صحی. در صورت ضرورت، شما را به داکتر متخصص معرفی می‌کند.","عمومي ډاکټر یا روغتیايي مرکز. د اړتیا په صورت کې به تاسو متخصص ډاکټر ته راجع کړي.");
+d("need.medecin.m","Les centres de santé pratiquent le tiers payant : vous n'avancez pas la part de l'Assurance maladie. Pour trouver un médecin près de chez vous : annuairesante.ameli.fr.","Health centres use direct billing: you do not pay upfront the part covered by health insurance. To find a doctor near you: annuairesante.ameli.fr.","تطبّق المراكز الصحية الدفع المباشر: لا تدفع مسبقاً الجزء الذي يغطيه التأمين الصحي. للعثور على طبيب قريب منك: annuairesante.ameli.fr.","مراکز صحی پرداخت مستقیم (tiers payant) دارند: بخشی را که بیمه صحی می‌پردازد پیشکی نمی‌دهید. برای یافتن داکتر نزدیک شما: annuairesante.ameli.fr.","روغتیايي مرکزونه مستقیمه تادیه (tiers payant) کوي: هغه برخه چې روغتیايي بیمه یې ورکوي، تاسو مخکې نه ورکوئ. تاسو ته د نږدې ډاکټر موندلو لپاره: annuairesante.ameli.fr.");
+d("need.pass","Me soigner sans couverture maladie","Get care without health cover","العلاج بدون تغطية صحية","تداوی بدون بیمه صحی","بې روغتیايي بیمې درملنه");
+d("need.pass.d","La PASS de l'hôpital public : consultations, examens, médicaments et aide pour vos droits.","The PASS at the public hospital: consultations, tests, medicines and help with your rights.","خدمة PASS في المستشفى العام: استشارات وفحوصات وأدوية ومساعدة في حقوقك.","PASS در شفاخانه دولتی: معاینه، آزمایش، دوا و کمک برای حقوق شما.","د دولتي روغتون PASS: معاینه، ازموینې، درمل او ستاسو د حقونو لپاره مرسته.");
+d("need.pass.m","La plupart des hôpitaux publics ont une PASS. Certaines sont spécialisées : yeux, dents, peau. Demandez « la PASS » à l'accueil de l'hôpital.","Most public hospitals have a PASS. Some specialise in eyes, teeth or skin. Ask for « la PASS » at the hospital reception.","معظم المستشفيات العامة فيها PASS. بعضها متخصص: العيون، الأسنان، الجلد. اطلب «la PASS» في استقبال المستشفى.","اکثر شفاخانه‌های دولتی PASS دارند. بعضی تخصصی هستند: چشم، دندان، جلد. در پذیرش شفاخانه « la PASS » را بخواهید.","ډېری دولتي روغتونونه PASS لري. ځینې یې ځانګړي دي: سترګې، غاښونه، پوستکی. د روغتون په استقبال کې « la PASS » وغواړئ.");
+d("need.pharma","Acheter des médicaments","Buy medicines","شراء الأدوية","خرید دوا","درمل اخیستل");
+d("need.pharma.d","À la pharmacie. La nuit, le dimanche et les jours fériés : pharmacie de garde.","At a pharmacy. At night, on Sundays and public holidays: the duty pharmacy (pharmacie de garde).","في الصيدلية. في الليل وأيام الأحد والعطل الرسمية: الصيدلية المناوبة (pharmacie de garde).","در دواخانه. شب‌ها، یکشنبه‌ها و روزهای رخصتی: دواخانه نوکریوال (pharmacie de garde).","په درملتون کې. د شپې، یکشنبې او رخصتیو کې: نوکریوال درملتون (pharmacie de garde).");
+d("need.pharma.m","L'adresse de la pharmacie de garde est souvent affichée sur la porte des pharmacies. Vous pouvez aussi appeler le 3237 (numéro payant).","The address of the duty pharmacy is often posted on pharmacy doors. You can also call 3237 (charged number).","غالباً ما يُعلَّق عنوان الصيدلية المناوبة على أبواب الصيدليات. يمكنك أيضاً الاتصال بالرقم 3237 (رقم مدفوع).","آدرس دواخانه نوکریوال اکثراً روی دروازه دواخانه‌ها نصب است. همچنین می‌توانید به 3237 زنگ بزنید (شماره پولی).","د نوکریوال درملتون پته اکثره د درملتونونو په دروازو لګول کېږي. تاسو کولای شئ 3237 ته هم زنګ ووهئ (دا شمېره وړیا نه ده).");
+d("need.urg","Urgence","Emergency","حالة طارئة","عاجل","بیړنی حالت");
+d("need.urg.d","Appelez le 15 ou le 112, ou allez aux urgences d'un hôpital.","Call 15 or 112, or go to a hospital emergency department.","اتصل بالرقم 15 أو 112، أو اذهب إلى قسم الطوارئ في المستشفى.","به 15 یا 112 زنگ بزنید، یا به بخش عاجل شفاخانه بروید.","15 یا 112 ته زنګ ووهئ، یا د روغتون بیړنۍ برخې ته لاړ شئ.");
+d("need.pmi","Grossesse, bébé, enfant de moins de 6 ans","Pregnancy, baby, child under 6","الحمل، الرضيع، الطفل دون 6 سنوات","حاملگی، نوزاد، طفل زیر 6 سال","امیندواري، کوچنی ماشوم، له 6 کلونو کم ماشوم");
+d("need.pmi.d","Le centre de PMI : suivi de grossesse, soins et conseils pour les enfants, vaccins.","The PMI centre: pregnancy check-ups, care and advice for children, vaccines.","مركز PMI: متابعة الحمل، رعاية الأطفال ونصائح، اللقاحات.","مرکز PMI: مراقبت حاملگی، تداوی و مشوره برای اطفال، واکسین.","د PMI مرکز: د امیندوارۍ څارنه، د ماشومانو پاملرنه او مشوره، واکسین.");
+d("need.sexu","Contraception, sexualité, IVG","Contraception, sexual health, abortion","منع الحمل، الصحة الجنسية، الإجهاض الاختياري","پیشگیری از حاملگی، صحت جنسی، سقط داوطلبانه","د امیندوارۍ مخنیوی، جنسي روغتیا، په خوښه سقط");
+d("need.sexu.d","Le centre de santé sexuelle : contraception, conseils, accompagnement pour une IVG.","The sexual health centre: contraception, advice, support for an abortion.","مركز الصحة الجنسية: وسائل منع الحمل، نصائح، مرافقة للإجهاض الاختياري.","مرکز صحت جنسی: پیشگیری از حاملگی، مشوره، همراهی برای سقط داوطلبانه.","د جنسي روغتیا مرکز: د امیندوارۍ مخنیوی، مشوره، د سقط لپاره ملاتړ.");
+d("need.depist","Dépistage VIH, hépatites, IST","HIV, hepatitis and STI testing","فحص الإيدز والتهاب الكبد والأمراض المنقولة جنسياً","آزمایش ایدز، هپاتیت و امراض مقاربتی","د ایډز، هپاټایټس او جنسي ناروغیو ازموینه");
+d("need.depist.d","Le CeGIDD : dépistage gratuit, et vous pouvez rester anonyme.","The CeGIDD: free testing, and you can stay anonymous.","مركز CeGIDD: فحص مجاني، ويمكنك البقاء مجهول الهوية.","CeGIDD: آزمایش رایگان، و می‌توانید ناشناس بمانید.","CeGIDD: وړیا ازموینه، او تاسو کولای شئ نوم ونه ښیئ.");
+d("need.tb","Tuberculose","Tuberculosis","السل","توبرکلوز","نري رنځ (توبرکلوز)");
+d("need.tb.d","Le CLAT : dépistage et traitement de la tuberculose.","The CLAT: tuberculosis testing and treatment.","مركز CLAT: فحص وعلاج السل.","CLAT: آزمایش و تداوی توبرکلوز.","CLAT: د توبرکلوز ازموینه او درملنه.");
+d("need.addict","Alcool, drogues, addictions","Alcohol, drugs, addiction","الكحول، المخدرات، الإدمان","الکول، مواد مخدر، اعتیاد","الکول، نشه یي توکي، روږدي کېدل");
+d("need.addict.d","Le CSAPA, ou le service d'addictologie de l'hôpital public.","The CSAPA, or the addiction service of the public hospital.","مركز CSAPA، أو قسم علاج الإدمان في المستشفى العام.","CSAPA، یا بخش اعتیاد شفاخانه دولتی.","CSAPA، یا د دولتي روغتون د روږدي کېدو برخه.");
+d("need.psy","Santé mentale, souffrance, traumatisme","Mental health, distress, trauma","الصحة النفسية، المعاناة، الصدمة","صحت روانی، رنج، تروما","رواني روغتیا، کړاو، ټراما");
+d("need.psy.d","Le CMP pour les adultes, le CMPP pour les enfants, la PASS Psy à l'hôpital.","The CMP for adults, the CMPP for children, the PASS Psy at the hospital.","مركز CMP للبالغين، وCMPP للأطفال، وPASS Psy في المستشفى.","CMP برای بزرگسالان، CMPP برای اطفال، PASS Psy در شفاخانه.","CMP د لویانو لپاره، CMPP د ماشومانو لپاره، په روغتون کې PASS Psy.");
+d("need.psy.m","Après des violences ou un événement très dur : les centres régionaux du psychotraumatisme (CRP), à trouver sur cn2r.fr. Guides sur la santé mentale en plusieurs langues : orspere-samdarra.com.","After violence or a very hard event: regional psychotrauma centres (CRP), listed on cn2r.fr. Mental health guides in several languages: orspere-samdarra.com.","بعد العنف أو حدث صعب جداً: المراكز الإقليمية للصدمات النفسية (CRP)، تجدها على cn2r.fr. أدلة عن الصحة النفسية بعدة لغات: orspere-samdarra.com.","بعد از خشونت یا یک رویداد بسیار سخت: مراکز منطقه‌ای تروما (CRP)، در cn2r.fr. رهنمای صحت روانی به چند زبان: orspere-samdarra.com.","د تاوتریخوالي یا ډېرې سختې پېښې وروسته: د رواني ټراما سیمه ییز مرکزونه (CRP)، په cn2r.fr کې. په څو ژبو د رواني روغتیا لارښودونه: orspere-samdarra.com.");
+d("need.vaccin","Me faire vacciner","Get vaccinated","الحصول على لقاح","واکسین شدن","واکسین کېدل");
+d("need.vaccin.d","Demandez à un médecin, une sage-femme, un pharmacien ou un infirmier, ou allez dans un centre de vaccination.","Ask a doctor, a midwife, a pharmacist or a nurse, or go to a vaccination centre.","اسأل طبيباً أو قابلة أو صيدلانياً أو ممرضاً، أو اذهب إلى مركز تلقيح.","از داکتر، قابله، دواساز یا نرس بپرسید، یا به مرکز واکسین بروید.","له ډاکټر، قابلې، درملپوه یا نرس څخه وپوښتئ، یا د واکسین مرکز ته لاړ شئ.");
+d("need.vaccin.m","Informations sur les vaccins : vaccination-info-service.fr.","Information on vaccines: vaccination-info-service.fr.","معلومات عن اللقاحات: vaccination-info-service.fr.","معلومات درباره واکسین‌ها: vaccination-info-service.fr.","د واکسینونو په اړه معلومات: vaccination-info-service.fr.");
+
+/* Comprendre */
+d("grp.understand","Pour comprendre","To understand","للفهم","برای فهمیدن","د پوهېدو لپاره");
+d("grp.aides","Les aides, une par une","Each type of help","المساعدات واحدة واحدة","کمک‌ها، یکی یکی","مرستې، یوه یوه");
+d("dr.title","Vos droits chez le médecin","Your rights with a doctor","حقوقك عند الطبيب","حقوق شما نزد داکتر","د ډاکټر سره ستاسو حقونه");
+d("dr.sub","Ce que le médecin doit faire, et ce qu'il ne peut pas refuser.","What the doctor must do, and what they cannot refuse.","ما يجب على الطبيب فعله، وما لا يمكنه رفضه.","کاری که داکتر باید انجام بدهد، و چیزی که نمی‌تواند رد کند.","هغه څه چې ډاکټر یې باید وکړي، او هغه څه چې نشي رد کولی.");
+d("dr1t","Soigner tout le monde","Care for everyone","علاج الجميع","تداوی همه","د ټولو درملنه");
+d("dr1","Le médecin doit écouter, examiner, conseiller et soigner toutes les personnes, quelle que soit leur origine.","The doctor must listen to, examine, advise and treat everyone, whatever their origin.","يجب على الطبيب أن يستمع ويفحص وينصح ويعالج جميع الأشخاص، بغض النظر عن أصولهم.","داکتر باید به همه اشخاص، بدون در نظرداشت اصالت آنها، گوش بدهد، معاینه کند، مشوره بدهد و تداوی کند.","ډاکټر باید ټولو خلکو ته غوږ ونیسي، معاینه یې کړي، مشوره ورکړي او درملنه یې وکړي، که له هر ځای راغلي وي.");
+d("dr2t","Expliquer et demander votre accord","Explain and ask for your consent","الشرح وطلب موافقتك","توضیح دادن و گرفتن موافقت شما","تشریح او ستاسو موافقه غوښتل");
+d("dr2","Le médecin doit vous expliquer les soins et vous demander votre accord avant de vous soigner ou de vous donner des médicaments. Si vous ne comprenez pas le français, demandez un interprète.","The doctor must explain the care and ask for your consent before treating you or giving you medicines. If you do not understand French, ask for an interpreter.","يجب على الطبيب أن يشرح لك العلاج ويطلب موافقتك قبل أن يعالجك أو يعطيك أدوية. إذا لم تفهم الفرنسية، اطلب مترجماً.","داکتر باید تداوی را به شما توضیح بدهد و قبل از تداوی یا دادن دوا موافقت شما را بگیرد. اگر زبان فرانسوی را نمی‌فهمید، مترجم بخواهید.","ډاکټر باید تاسو ته درملنه تشریح کړي او مخکې له دې چې ستاسو درملنه وکړي یا درمل درکړي، ستاسو موافقه وغواړي. که په فرانسوي نه پوهېږئ، ژباړونکی وغواړئ.");
+d("dr3t","Le secret médical","Medical confidentiality","السرية الطبية","رازداری طبی","طبي رازداري");
+d("dr3","Le médecin garde secrètes toutes les informations sur votre santé.","The doctor keeps all information about your health confidential.","يحتفظ الطبيب بجميع المعلومات حول صحتك بسرية تامة.","داکتر تمام معلومات صحی شما را محرمانه نگه می‌دارد.","ډاکټر ستاسو د روغتیا په اړه ټول معلومات پټ ساتي.");
+d("dr4t","Pas de refus à cause de l'AME ou de la C2S","No refusal because of AME or C2S","لا رفض بسبب AME أو C2S","رد نکردن به خاطر AME یا C2S","د AME یا C2S له امله رد نه");
+d("dr4","Un médecin ou un dentiste ne peut pas refuser de vous soigner parce que vous avez l'AME ou la C2S. Si cela arrive, vous pouvez le signaler à votre CPAM ou au Défenseur des droits.","A doctor or dentist cannot refuse to treat you because you have AME or C2S. If this happens, you can report it to your CPAM or to the Défenseur des droits (rights ombudsman).","لا يحق للطبيب أو طبيب الأسنان رفض علاجك لأن لديك AME أو C2S. إذا حدث ذلك، يمكنك الإبلاغ عنه لدى CPAM أو لدى المدافع عن الحقوق (Défenseur des droits).","داکتر یا داکتر دندان نمی‌تواند تداوی شما را به خاطر داشتن AME یا C2S رد کند. اگر این اتفاق افتاد، می‌توانید به CPAM یا مدافع حقوق (Défenseur des droits) گزارش بدهید.","ډاکټر یا د غاښونو ډاکټر نشي کولای ستاسو درملنه د AME یا C2S له امله رد کړي. که داسې وشول، تاسو کولای شئ CPAM یا د حقونو مدافع (Défenseur des droits) ته یې راپور ورکړئ.");
+d("rb.title","Comment on est remboursé","How costs are covered","كيف يتم التعويض","بازپرداخت چطور است","لګښتونه څنګه جبران کېږي");
+d("rb.sub","Carte Vitale, tiers payant, médecin traitant : les mots à connaître.","Carte Vitale, direct billing, regular doctor: words to know.","بطاقة Vitale، الدفع المباشر، الطبيب المعالج: كلمات يجب معرفتها.","کارت Vitale، پرداخت مستقیم، داکتر معالج: کلماتی که باید بدانید.","Vitale کارت، مستقیمه تادیه، کورنی ډاکټر: هغه کلمې چې باید پرې پوه شئ.");
+d("rb1t","En France, les soins sont payants","In France, care must be paid for","في فرنسا، العلاج ليس مجانياً","در فرانسه، تداوی پولی است","په فرانسه کې درملنه پیسې لري");
+d("rb1","L'Assurance maladie (Sécurité sociale) rembourse une partie. La complémentaire santé (mutuelle, ou C2S) rembourse le reste.","Health insurance (Sécurité sociale) pays back part of it. A top-up cover (mutuelle, or C2S) pays the rest.","يعوّض التأمين الصحي (الضمان الاجتماعي) جزءاً منها. ويعوّض التأمين الصحي التكميلي (mutuelle أو C2S) الباقي.","بیمه صحی (سازمان تامین اجتماعی) یک بخش را بازپرداخت می‌کند. بیمه تکمیلی صحی (mutuelle یا C2S) باقی را می‌پردازد.","روغتیايي بیمه (سوشل سیکوریټي) یوه برخه جبرانوي. بشپړونکې روغتیايي بیمه (mutuelle یا C2S) پاتې برخه ورکوي.");
+d("rb2t","Le tiers payant","Direct billing (tiers payant)","الدفع المباشر (tiers payant)","پرداخت مستقیم (tiers payant)","مستقیمه تادیه (tiers payant)");
+d("rb2","L'Assurance maladie paie directement le médecin ou la pharmacie : vous n'avancez pas cet argent. Montrez votre carte Vitale ou votre attestation de droits.","Health insurance pays the doctor or pharmacy directly: you don't pay that money upfront. Show your Carte Vitale or your certificate of rights (attestation de droits).","يدفع التأمين الصحي مباشرة للطبيب أو الصيدلية: لا تدفع هذا المال مسبقاً. اعرض بطاقة Vitale أو شهادة الحقوق (attestation de droits).","بیمه صحی مستقیماً به داکتر یا دواخانه پرداخت می‌کند: شما این پول را پیشکی نمی‌دهید. کارت Vitale یا تصدیق حقوق (attestation de droits) خود را نشان بدهید.","روغتیايي بیمه په مستقیم ډول ډاکټر یا درملتون ته پیسې ورکوي: تاسو دا پیسې مخکې نه ورکوئ. خپل Vitale کارت یا د حقونو تصدیق (attestation de droits) وښیئ.");
+d("rb3t","Le numéro de sécurité sociale","Social security number","رقم الضمان الاجتماعي","شماره تامین اجتماعی","د ټولنیز تامین شمېره");
+d("rb3","D'abord, vous recevez un numéro d'attente (NIA). Vous pouvez le montrer aux médecins. Ensuite, vous recevez votre numéro définitif à 15 chiffres, puis la carte Vitale.","First you receive a temporary number (NIA). You can show it to doctors. Then you receive your permanent 15-digit number, and later the Carte Vitale.","في البداية، تحصل على رقم انتظار مؤقت (NIA). يمكنك تقديمه للأطباء. بعد ذلك، تحصل على رقمك النهائي المكوّن من 15 رقماً، ثم على بطاقة Vitale.","اول، یک شماره انتظار (NIA) دریافت می‌کنید. می‌توانید آن را به داکتران نشان بدهید. بعد، شماره دائمی 15 رقمی خود و سپس کارت Vitale را دریافت می‌کنید.","لومړی، تاسو د انتظار یوه شمېره (NIA) ترلاسه کوئ. تاسو کولای شئ ډاکټرانو ته یې وښیئ. وروسته، خپله دایمي 15 رقمي شمېره او بیا Vitale کارت ترلاسه کوئ.");
+d("rb4t","Le médecin traitant","Your regular doctor (médecin traitant)","الطبيب المعالج (médecin traitant)","داکتر معالج (médecin traitant)","کورنی ډاکټر (médecin traitant)");
+d("rb4","Choisissez un médecin que vous verrez toujours, et déclarez-le à l'Assurance maladie (il peut le faire en ligne avec votre accord). Vous serez mieux soigné et mieux remboursé. Il vous envoie vers les spécialistes. Gynécologue, ophtalmologue et psychiatre : vous pouvez y aller directement.","Choose a doctor you will always see, and register them with health insurance (they can do it online with your consent). You will get better care and better cover. They refer you to specialists. Gynaecologist, eye doctor and psychiatrist: you can go directly.","اختر طبيباً تراه دائماً، وصرّح به لدى التأمين الصحي (يمكنه القيام بذلك عبر الإنترنت بموافقتك). ستحصل على علاج أفضل وتعويض أفضل. يحوّلك إلى الأطباء الاختصاصيين. طبيب النساء وطبيب العيون والطبيب النفسي: يمكنك الذهاب إليهم مباشرة.","داکتری را انتخاب کنید که همیشه نزد او بروید، و او را به بیمه صحی معرفی کنید (او می‌تواند با موافقت شما این کار را آنلاین انجام بدهد). بهتر تداوی و بهتر بازپرداخت می‌شوید. او شما را به متخصصان معرفی می‌کند. داکتر نسایی، داکتر چشم و داکتر روانی: می‌توانید مستقیم بروید.","یو ډاکټر وټاکئ چې تل ورته ورځئ، او روغتیايي بیمې ته یې معرفي کړئ (هغه کولای شي ستاسو په موافقه دا کار آنلاین وکړي). تاسو به ښه درملنه او ښه جبران ترلاسه کړئ. هغه تاسو متخصصانو ته لېږي. د ښځینه ناروغیو ډاکټر، د سترګو ډاکټر او رواني ډاکټر: تاسو کولای شئ مستقیم ورشئ.");
+d("lf.title","Le dépliant officiel dans votre langue","The official leaflet in your language","الكتيّب الرسمي بلغتك","رساله رسمی به زبان شما","رسمي لارښود ستاسو په ژبه");
+d("lf.sub","« Si je suis malade, où me soigner ? », ministère de l'Intérieur, 16 langues. Il explique où se soigner et comment avoir l'Assurance maladie. Il ne parle pas de l'AME.","« Si je suis malade, où me soigner ? » (If I am ill, where can I get care?), Ministry of the Interior, 16 languages. It explains where to get care and how to get health insurance. It does not cover AME.","«إذا مرضت، أين أتلقى العلاج؟»، وزارة الداخلية، 16 لغة. يشرح أين تتلقى العلاج وكيف تحصل على التأمين الصحي. لا يتحدث عن AME.","«در صورت مریضی، در کجا می‌توانم تداوی شوم؟»، وزارت داخله، 16 زبان. توضیح می‌دهد کجا تداوی شوید و چطور بیمه صحی بگیرید. درباره AME صحبت نمی‌کند.","«که زه ناروغه یم، چېرته درملنه وکړم؟»، د کورنیو چارو وزارت، 16 ژبې. دا تشریح کوي چې چېرته درملنه وکړئ او څنګه روغتیايي بیمه ترلاسه کړئ. د AME په اړه خبرې نه کوي.");
+d("lf.yours","Dans votre langue","In your language","بلغتك","به زبان شما","ستاسو په ژبه");
+d("lf.others","Autres langues","Other languages","لغات أخرى","زبان‌های دیگر","نورې ژبې");
+
+/* Cas couverts dès l'arrivée */
+d("q7","Êtes-vous dans l'un de ces cas ?","Are you in one of these situations?","هل أنت في إحدى هذه الحالات؟","آیا در یکی از این حالت‌ها هستید؟","ایا تاسو په دې حالتونو کې یاست؟");
+d("o.emploi","J'ai un emploi en France","I have a job in France","لدي عمل في فرنسا","در فرانسه کار دارم","په فرانسه کې دنده لرم");
+d("o.refugie","Réfugié ou protection subsidiaire","Refugee or subsidiary protection","لاجئ أو حماية فرعية","پناهنده یا حمایت فرعی","کډوال یا فرعي ساتنه");
+d("o.etudiant","Étudiant","Student","طالب جامعي","محصل","محصل");
+d("o.ase","Mineur confié à l'aide sociale à l'enfance (ASE)","Minor in the care of child welfare (ASE)","قاصر تحت رعاية المساعدة الاجتماعية للطفولة (ASE)","نوجوان تحت سرپرستی خدمات اجتماعی اطفال (ASE)","هغه ماشوم چې د ماشومانو ټولنیزې مرستې (ASE) ته سپارل شوی");
+d("o.famille","Famille d'une personne déjà assurée en France","Family member of someone already insured in France","فرد من عائلة شخص مؤمَّن عليه في فرنسا","عضو خانواده شخصی که در فرانسه بیمه است","د داسې کس د کورنۍ غړی چې په فرانسه کې بیمه دی");
+d("o.aucun","Aucun de ces cas","None of these","لا شيء من ذلك","هیچ‌کدام","هېڅ یو");
+d("r.puma.emploi","Vous êtes couvert dès le début de votre travail, sans démarche à faire.","You are covered from the first day of work, with nothing to do.","أنت مشمول بالتغطية منذ بداية عملك، دون أي إجراء.","از شروع کار تحت پوشش هستید، بدون هیچ اقدامی.","د کار له پیل څخه پوښل شوي یاست، پرته له کوم اقدام.");
+d("r.puma.arrivee","Vous pouvez avoir l'Assurance maladie et la C2S dès votre arrivée. Faites la demande à votre CPAM.","You can get health insurance and C2S from your arrival. Apply to your CPAM.","يمكنك الحصول على التأمين الصحي وC2S منذ وصولك. قدّم الطلب إلى CPAM.","از زمان رسیدن می‌توانید بیمه صحی و C2S بگیرید. به CPAM خود درخواست بدهید.","د رارسېدو سره سم کولای شئ روغتیايي بیمه او C2S ترلاسه کړئ. خپل CPAM ته غوښتنه ورکړئ.");
+d("r.puma.wait","Vous pourrez la demander après 3 mois de vie en France. Gardez dès maintenant des preuves datées de votre présence (quittances, factures, attestation d'association).","You can apply after 3 months living in France. Start keeping dated proof that you are here (rent receipts, bills, a letter from an association).","يمكنك طلبه بعد 3 أشهر من العيش في فرنسا. احتفظ من الآن بإثباتات مؤرخة لوجودك (إيصالات الإيجار، فواتير، شهادة من جمعية).","بعد از 3 ماه زندگی در فرانسه می‌توانید درخواست بدهید. از همین حالا اسناد تاریخ‌دار حضور خود را نگه دارید (رسید کرایه، بل‌ها، تصدیق مؤسسه).","په فرانسه کې له 3 میاشتو ژوند وروسته یې غوښتلای شئ. له همدا اوسه د خپل شتون نېټه لرونکي ثبوتونه وساتئ (د کرایې رسیدونه، بلونه، د موسسې تصدیق).");
+
+/* ---------- Pictogrammes ---------- */
+var ICO={
+  card:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>',
+  shield:'<path d="M12 3l8 3v6c0 4.6-3.4 7.9-8 9-4.6-1.1-8-4.4-8-9V6z"/><path d="M12 9v6M9 12h6"/>',
+  idcard:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.8-1.6 5.2-1.6 6 0M14 10h4M14 14h4"/>',
+  cross:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+  hosp:'<path d="M4 21V5l8-2 8 2v16"/><path d="M9 21v-4h6v4M12 7v5M9.5 9.5h5"/>',
+  doc:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h6M9 16h6"/>',
+  docplus:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M12.5 11v6M9.5 14h6"/>',
+  case:'<rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V5h6v3M4 13h16"/>',
+  person:'<circle cx="12" cy="7" r="3.2"/><path d="M5.5 21v-1.5a6.5 6.5 0 0 1 13 0V21"/>',
+  child:'<circle cx="12" cy="9" r="2.6"/><path d="M8 21v-2.5a4 4 0 0 1 8 0V21"/><path d="M4 21h16"/>',
+  preg:'<circle cx="11" cy="5" r="2.4"/><path d="M9 21v-6.5M9 9.5h3c2.6 0 4.5 2.1 4.5 4.3 0 2-1.6 3.2-3.5 3.2H12v4"/><path d="M9 9.5v5"/>',
+  plane:'<path d="M3 12.5l18-8-6.5 16-3-6.5z"/><path d="M11.5 14l9.5-9.5"/>',
+  star:'<circle cx="12" cy="12" r="9"/><path d="M12 7.6l1.3 2.7 3 .4-2.2 2.1.5 3L12 14.4l-2.6 1.4.5-3-2.2-2.1 3-.4z"/>',
+  cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  pin:'<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+  bubble:'<path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/>',
+  quest:'<path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/>',
+  folder:'<path d="M3 6h6l2 2h10v11H3z"/>',
+  home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
+  lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  ok:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  alert:'<circle cx="12" cy="12" r="9"/><path d="M12 7.5v6M12 16.5v.5"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  bolt:'<path d="M13 3L5 13h6l-1 8 8-10h-6z"/>',
+  down:'<path d="M6 9l6 6 6-6"/>',
+  chev:'<path d="M9 5l7 7-7 7"/>',
+  left:'<path d="M15 5l-7 7 7 7"/>',
+  minus:'<path d="M5 12h14"/>',plus:'<path d="M12 5v14M5 12h14"/>',
+  steth:'<path d="M5 3v5a4 4 0 0 0 8 0V3"/><path d="M9 12v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="2"/>',
+  pill:'<rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="M10 10l4 4"/>',
+  heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+  drop:'<path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/>',
+  lungs:'<path d="M12 4v8M12 12l-3-2M12 12l3-2"/><path d="M8.5 7C6 7 4 11 4 15.5 4 18 5.5 20 7.5 20S11 18 11 16v-5"/><path d="M15.5 7C18 7 20 11 20 15.5 20 18 18.5 20 16.5 20S13 18 13 16v-5"/>',
+  head:'<path d="M7 21v-3.5A7 7 0 1 1 18 11l1.5 3H18v3a2 2 0 0 1-2 2h-2v2"/>',
+  syringe:'<path d="M4 20l3-3"/><path d="M7 17l-1-1 9-9 3 3-9 9z"/><path d="M14 4l6 6M17 3l4 4M10 11l2 2"/>',
+  glass:'<path d="M6 3h12l-1.5 9a4.5 4.5 0 0 1-9 0z"/><path d="M12 16.5V21M8.5 21h7"/>',
+  scale:'<path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
+  euro:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5a4 4 0 1 0 0 7M7.5 11h6M7.5 13.5h5"/>',
+  book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h7"/>',
+  x:'<path d="M6 6l12 12M18 6L6 18"/>',
+  ext:'<path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>'
+};
+function svg(n,sz,sw){return '<svg width="'+(sz||24)+'" height="'+(sz||24)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="'+(sw||2)+'" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">'+ICO[n]+'</svg>';}
+function flip(n,sz){return '<span class="flip">'+svg(n,sz,2.4)+'</span>';}
+var AID_ICON={puma:"card",c2s:"shield",ame:"idcard",suv:"cross",pass:"hosp",tsoins:"docplus",assur:"case"};
+var ORDER=["puma","c2s","ame","suv","pass","tsoins"];
+var ST_ICON={now:"bolt",yes:"ok",check:"alert",later:"clock"};
+
+var QDEF={
+  statut:{q:"q1",hint:"q1.hint",opts:[["reg","card"],["asile","doc"],["sans","person"],["visa","plane"],["ue","star"]]},
+  qui:{q:"q3",opts:[["adulte","person"],["enfant","child"],["enceinte","preg"]]},
+  duree:{q:"q2",opts:[["lt3","cal"],["gt3","cal"]]},
+  cas:{q:"q7",opts:[["emploi","case"],["refugie","shield"],["etudiant","book"],["ase","child"],["famille","person"],["aucun","x"]]},
+  lieu:{q:"q4",opts:[["metro","pin"],["dom","pin"],["mayotte","pin"]]},
+  foyer:{q:"q5",hint:"q5.hint",type:"count"},
+  revenu:{q:"q6",hint:"q6.hint",type:"money"}
+};
+
+/* ---------- Niveau professionnel (français) ---------- */
+var PRO={
+puma:'<ul><li>Droit ouvert par l\'activité professionnelle, ou par une résidence <strong>stable</strong> (plus de 3 mois ininterrompus) et <strong>régulière</strong> (CSS L. 160-1).</li><li>Demandeurs d\'asile majeurs : délai de 3 mois de résidence depuis 2020. Mineurs à charge : affiliation sans délai. Dans l\'intervalle : soins urgents et PASS. La demande se fait dès l\'enregistrement de la demande d\'asile.</li><li>Fin du titre de séjour : maintien des droits PUMa et C2S pendant 6 mois après l\'expiration du titre (CSS R. 111-4). Des amendements visant à le restreindre sont régulièrement déposés (dont au PLFSS 2026) : vérifier l\'état du droit.</li><li>Citoyens UE/EEE/Suisse sans activité : la caisse examine le droit au séjour (ressources suffisantes et couverture maladie complète). En cas de refus, orientation vers l\'AME ; ces refus sont souvent contestés par les associations (Gisti, ODSE).</li><li>Formulaire : demande d\'ouverture des droits (S1106), à la CPAM du lieu de résidence ou de domiciliation.</li></ul>',
+c2s:'<div class="tbl"><table><thead><tr><th>Foyer</th><th>Gratuite jusqu\'à</th><th>Avec participation jusqu\'à</th></tr></thead><tbody><tr><td>1 personne</td><td>10 421 €</td><td>14 069 €</td></tr><tr><td>2 personnes</td><td>15 632 €</td><td>21 103 €</td></tr><tr><td>3 personnes</td><td>18 758 €</td><td>25 324 €</td></tr><tr><td>4 personnes</td><td>21 885 €</td><td>29 544 €</td></tr><tr><td>Par personne en plus</td><td>+ 4 169 €</td><td>+ 5 628 €</td></tr></tbody></table></div><ul><li>Barème annuel en métropole au 1<sup>er</sup> avril 2026 (revalorisé de 0,8 %, chaque 1<sup>er</sup> avril). Outre-mer : plafonds majorés de 11,11 %.</li><li>Ressources des 12 mois précédant la demande ; les aides au logement sont comptées sous forme de forfait.</li><li>Participation selon l\'âge au 1<sup>er</sup> janvier, par personne et par mois : 8 € (29 ans et moins), 14 € (30-49), 21 € (50-59), 25 € (60-69), 30 € (70 ans et plus).</li><li>Pas de dépassements d\'honoraires, pas d\'avance de frais, forfait hospitalier couvert. CSS L. 861-1.</li></ul>',
+ame:'<ul><li>CASF L. 251-1 : résidence ininterrompue de plus de 3 mois en situation irrégulière ; ressources inférieures au plafond de la C2S gratuite. Mineurs : sans condition de durée, demande possible sans justificatif de résidence ni de ressources.</li><li><strong>Décret n° 2026-67 du 6 février 2026</strong>, en vigueur le 1<sup>er</sup> avril 2026 : document d\'identité officiel avec photo pour les majeurs ; extrait d\'acte de naissance ou copie du livret de famille sans traduction exigée ; certains justificatifs de présence doivent dater de moins de 12 mois ; justificatif de soins avec date de début si soins ou hospitalisation dans les 90 jours précédant la demande (prise en charge rétroactive) ; photo des personnes à charge de 16 ans et plus.</li><li><strong>Décret n° 2026-66</strong> : les agents des postes consulaires et des ministères des Affaires étrangères et de l\'Intérieur qui instruisent les visas deviennent destinataires de certaines données AME. À expliquer aux personnes accompagnées.</li><li>Première demande déposée en personne à la caisse (exceptions : mobilité réduite, tutelle ou curatelle) ou par un établissement de santé.</li><li>Panier réduit : exclusions (cures thermales, PMA, médicaments à service médical rendu faible…) ; certains actes programmés non urgents seulement après 9 mois d\'ancienneté (prothèses de hanche, genou, épaule…). Le panier n\'a pas été modifié par les décrets de 2026.</li><li>Non-recours : environ la moitié des personnes éligibles (49 % selon l\'IRDES, cité par Médecins du Monde). Pas d\'AME à Mayotte.</li></ul>',
+suv:'<ul><li>CASF L. 254-1 : soins dont l\'absence mettrait en jeu le pronostic vital ou conduirait à une altération grave et durable de l\'état de santé de la personne ou d\'un enfant à naître ; soins destinés à éviter la propagation d\'une maladie.</li><li>Concerne les personnes en situation irrégulière non admissibles à l\'AME (moins de 3 mois de résidence, ressources au-dessus du plafond, refus), ainsi que les demandeurs d\'asile majeurs pendant le délai de 3 mois. Les mineurs relèvent de l\'AME sans délai.</li><li>Facturation par l\'établissement à la CPAM du département (délai d\'un an). Échecs fréquents de mobilisation, d\'où des dettes hospitalières : le Défenseur des droits demande de l\'ouvrir à toute personne sans droits ouvrables, indépendamment du séjour.</li><li>Réflexe : signaler la situation au service social dès l\'admission.</li></ul>',
+pass:'<ul><li>Créées par la loi de lutte contre les exclusions du 29 juillet 1998. Accueil inconditionnel ; gratuité soumise à l\'évaluation médico-sociale.</li><li>Accès à la pharmacie hospitalière, au plateau technique et aux spécialistes ; objectif de retour au droit commun.</li><li>Fonctionnement très hétérogène (généralistes, spécialisées, mobiles, ambulatoires ; horaires variables). Certaines refusent les visas touristiques ou les personnes couvertes dans un autre pays de l\'UE.</li><li>Annuaires régionaux sur les sites des ARS (par exemple Île-de-France).</li></ul>',
+tsoins:'<ul><li>CESEDA L. 425-9 : carte « vie privée et familiale » pour l\'étranger dont l\'état de santé nécessite une prise en charge dont le défaut aurait des conséquences d\'une exceptionnelle gravité, et qui ne peut bénéficier effectivement d\'un traitement approprié dans son pays.</li><li>Certificat médical confidentiel adressé au service médical de l\'OFII ; collège de trois médecins ; avis simple, décision du préfet.</li><li>Parent d\'un enfant malade : autorisation provisoire de séjour.</li><li>Plusieurs propositions de loi déposées en 2026 visent à restreindre ou supprimer ce titre (dont la proposition n° 689) : vérifier l\'état du droit avant chaque dépôt.</li></ul>'
+};
+var PHRASES=[
+ {k:"ph1",fr:"Bonjour. Je n'ai pas de couverture maladie. Je voudrais voir la PASS (permanence d'accès aux soins de santé), s'il vous plaît."},
+ {k:"ph2",fr:"J'ai besoin d'un interprète, s'il vous plaît. Ma langue : {lang}."},
+ {k:"ph3",fr:"Je voudrais déposer une demande d'aide médicale de l'État (AME). Pouvez-vous me donner une preuve de dépôt ?"},
+ {k:"ph4",fr:"Je voudrais parler à l'assistante sociale de l'hôpital, s'il vous plaît."},
+ {k:"ph5",fr:"Je ne comprends pas bien. Pouvez-vous l'écrire, ou parler plus lentement ?"}
+];
+var ORGS=[
+ ["Médecins du Monde","https://www.medecinsdumonde.org/","org.mdm"],
+ ["Comede","https://www.comede.org/","org.comede"],
+ ["La Cimade","https://www.lacimade.org/","org.cimade"],
+ ["Dom'Asile","https://domasile.org/","org.domasile"],
+ ["Réfugiés.info","https://refugies.info/","org.refinfo"],
+ ["Watizat","","org.watizat"],
+ ["ameli.fr","https://www.ameli.fr/","org.ameli"]
+];
+var SOURCES=[
+ ["https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053449019","Décret n° 2026-67 du 6 février 2026 (pièces justificatives AME), Légifrance"],
+ ["https://www.federationsolidarite.org/actualites/ame-deux-nouveaux-decrets-publies-le-6-fevrier-2026/","AME : deux nouveaux décrets publiés le 6 février 2026, Fédération des acteurs de la solidarité"],
+ ["https://www.medecinsdumonde.org/ame-laide-medicale-detat/","AME : l'aide médicale d'État, Médecins du Monde"],
+ ["https://www.toutsurmesfinances.com/actualites/a/complementaire-sante-solidaire-le-plafond-de-ressources-revalorise-de-08","Plafonds C2S au 1er avril 2026"],
+ ["https://www.immigration.interieur.gouv.fr/Asile/L-acces-aux-soins","L'accès aux soins des demandeurs d'asile, ministère de l'Intérieur"],
+ ["https://www.previssima.fr/actualite/puma-quel-est-le-sort-reserve-aux-personnes-en-situation-irreguliere-de-sejour.html","PUMa : maintien des droits 6 mois après la fin du titre"],
+ ["https://www.federationsolidarite.org/wp-content/uploads/2023/09/Note-acces-aux-soins-v4.pdf","Le dispositif soins urgents et vitaux, FAS (2023)"],
+ ["https://www.defenseurdesdroits.fr/sites/default/files/2023-12/fiches-reformes_048.pdf","Défenseur des droits : AME et soins urgents"],
+ ["https://www.larevuedupraticien.fr/article/permanences-dacces-aux-soins-de-sante","Les permanences d'accès aux soins de santé, La Revue du Praticien"],
+ ["https://www.justice.fr/fiche/etranger-habitant-france-gravement-malade-obtenir-titre-sejour","Titre de séjour pour soins, justice.fr"],
+ ["https://guide.comede.org/","Guide Comede (en ligne)"]
+];
+
+/* ---------- Lieux de soin ---------- */
+var NEEDS=[
+ {id:"medecin",ic:"steth",grp:1,q:"centre de santé",keys:["medecin"],more:1,links:[["annuairesante.ameli.fr","https://annuairesante.ameli.fr/"]]},
+ {id:"pass",ic:"hosp",grp:1,free:1,q:"PASS hôpital",keys:["hopital"],more:1},
+ {id:"pharma",ic:"pill",grp:1,q:"pharmacie",keys:[],more:1},
+ {id:"urg",ic:"cross",grp:1,q:"urgences hôpital",keys:["hopital"],nums:1},
+ {id:"pmi",ic:"child",grp:2,free:1,q:"PMI protection maternelle et infantile",keys:["pmi"]},
+ {id:"sexu",ic:"heart",grp:2,free:1,q:"centre de santé sexuelle",keys:["sexu"]},
+ {id:"depist",ic:"drop",grp:2,free:1,q:"CeGIDD dépistage",keys:["depist"]},
+ {id:"tb",ic:"lungs",grp:2,free:1,q:"CLAT centre de lutte antituberculeuse",keys:["tb"]},
+ {id:"addict",ic:"glass",grp:2,free:1,q:"CSAPA addictologie",keys:["addict"]},
+ {id:"psy",ic:"head",grp:2,free:1,q:"CMP centre médico-psychologique",keys:["psy","psyenf"],more:1,links:[["cn2r.fr","https://cn2r.fr/"],["orspere-samdarra.com","https://orspere-samdarra.com/"]]},
+ {id:"vaccin",ic:"syringe",grp:2,q:"centre de vaccination",keys:["vaccin"],more:1,links:[["vaccination-info-service.fr","https://vaccination-info-service.fr/"]]}
+];
+function needById(id){return NEEDS.filter(function(n){return n.id===id;})[0];}
+var LEAF_BASE="https://www.immigration.interieur.gouv.fr/sites/dgef/files/medias/documents/2025-07/si-je-suis-malade-ou-me-soigner";
+var LEAF=[["fr","fr","Français","-VF"],["sq","sq","Shqip","_ALBANAIS"],["en","en","English","_ANGLAIS"],["ar","ar","العربية","_ARABE"],["bn","bn","বাংলা","_BENGALI"],["zh","zh","中文","_CHINOIS"],["ht","ht","Kreyòl ayisyen","_CREOLE-HAITIEN"],["prs","fa-AF","دری","_DARI"],["es","es","Español","_ESPAGNOL"],["ps","ps","پښتو","-PASHTO"],["pt","pt","Português","_PORTUGAIS"],["ru","ru","Русский","_RUSSE"],["so","so","Soomaali","_SOMALI"],["ta","ta","தமிழ்","_TAMOUL"],["ti","ti","ትግርኛ","_TIGRINYA"],["tr","tr","Türkçe","_TURC"]];
+function gmaps(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);}
+function loadData(){
+  if(DATA!==undefined)return Promise.resolve(DATA);
+  if(!DATA_P)DATA_P=fetch("lieux.json").then(function(r){if(!r.ok)throw new Error("http");return r.json();}).then(function(j){
+    j.cn=j.communes.map(function(c){return normTxt(c[0]);});DATA=j;return j;
+  }).catch(function(){DATA=null;return null;});
+  return DATA_P;
+}
+function normTxt(x){
+  return String(x).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/['’-]/g," ").replace(/\bste\b/g,"sainte").replace(/\bst\b/g,"saint").replace(/\s+/g," ").trim();
+}
+function resolveLoc(text){
+  var c=DATA.communes,i,out=[],seen={};
+  var q=text.replace(/\s/g,"");
+  if(/^\d{5}$/.test(q)){
+    for(i=0;i<c.length;i++)if(c[i][1]===q){out.push(c[i]);break;}
+    return out;
+  }
+  var n=normTxt(text);if(!n)return out;
+  function push(k){var key=c[k][0]+"|"+c[k][2];if(!seen[key]){seen[key]=1;out.push(c[k]);}}
+  for(i=0;i<c.length;i++)if(DATA.cn[i]===n)push(i);
+  if(!out.length)for(i=0;i<c.length&&out.length<8;i++)if(DATA.cn[i].indexOf(n)===0)push(i);
+  return out;
+}
+function locFrom(c){return {label:c[0]+" ("+c[2]+")",city:c[0]+" "+c[1],lat:c[3],lon:c[4]};}
+function km(a,b,c,d){var R=6371,r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((d-b)*r/2);return 2*R*Math.asin(Math.sqrt(x*x+Math.cos(a*r)*Math.cos(c*r)*y*y));}
+function nearest(need,limit){
+  if(!DATA||!LOC||LOC.lat===undefined||!need.keys.length)return [];
+  var res=[];
+  DATA.places.forEach(function(p){if(need.keys.indexOf(p[0])<0)return;var dd=km(LOC.lat,LOC.lon,p[5],p[6]);if(dd<=50)res.push([dd,p]);});
+  res.sort(function(a,b){return a[0]-b[0];});
+  return limit?res.slice(0,limit):res;
+}
+function fmtKm(x){return x<10?x.toLocaleString("fr-FR",{maximumFractionDigits:1,minimumFractionDigits:1}):String(Math.round(x));}
+
+/* ---------- État ---------- */
+var L="fr",SIZE=1,VIEW="home",FICHE=null,STEP=0,DONE=false,FROM="aides";
+var s={statut:null,qui:null,duree:null,cas:null,lieu:null,foyer:1,revenu:null};
+var LIEU=null,FROM_L="lieux",INFO=null,LOC=null,DATA,DATA_P=null,MORE={};
+function store(k,v){try{localStorage.setItem("ssf."+k,v);}catch(e){}}
+function load(k){try{return localStorage.getItem("ssf."+k);}catch(e){return null;}}
+function t(k){var e=T[k];if(!e)return k;return (e[L]!==undefined&&e[L]!=="")?e[L]:e.fr;}
+function fmt(k,v){return t(k).replace(/\{(\w+)\}/g,function(m,p){return v[p]!==undefined?v[p]:m;});}
+var nf=new Intl.NumberFormat("fr-FR",{maximumFractionDigits:0});
+function eur(n){return nf.format(Math.round(n))+" €";}
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function langFr(){return LANGS.filter(function(x){return x.k===L;})[0].fr;}
+
+function caps(n,lieu){
+  var free=[10421,15632,18758,21885],part=[14069,21103,25324,29544];
+  var a=n<=4?free[n-1]:21885+4169*(n-4),b=n<=4?part[n-1]:29544+5628*(n-4);
+  if(lieu==="dom"){a*=1.1111;b*=1.1111;}
+  return {free:Math.round(a),part:Math.round(b)};
+}
+function level(){
+  if(s.revenu===null||isNaN(s.revenu))return "unknown";
+  var c=caps(s.foyer,s.lieu),y=s.revenu*12;
+  return y<=c.free?"free":(y<=c.part?"partic":"above");
+}
+function visible(){
+  var v={statut:true,qui:true,duree:true,cas:false,lieu:true,foyer:true,revenu:true};
+  if(s.statut==="reg"&&s.duree==="lt3")v.cas=true;
+  if(s.statut==="visa")v.duree=false;
+  if(s.qui==="enfant"&&(s.statut==="sans"||s.statut==="asile"))v.duree=false;
+  if(s.statut==="visa"||s.lieu==="mayotte"){v.foyer=false;v.revenu=false;}
+  return v;
+}
+function steps(){var v=visible();return ["statut","qui","duree","cas","lieu","foyer","revenu"].filter(function(k){return v[k];});}
+
+function compute(){
+  var items=[],notes=[],no=[],child=s.qui==="enfant",preg=s.qui==="enceinte",lt3=s.duree==="lt3";
+  if(s.lieu==="mayotte"){notes.push("n.mayotte");if(preg)notes.push("n.preg");return {items:items,notes:notes,no:no};}
+  var lvl=level();
+  var PP_PUMA=["pp.titre","pp.idbase","pp.adresse","pp.c2sress"];
+  var PP_AME=["pp.id","pp.photo","pp.presence","pp.adresse","pp.ress","pp.soins90"];
+  function add(id,st,txt,o){var it={id:id,st:st,txt:[txt]};if(o){it.pp=o.pp;it.w=o.w;}items.push(it);return it;}
+  function c2s(){
+    if(lvl==="free")add("c2s","yes","r.c2s.free",{pp:PP_PUMA,w:"w.puma"});
+    else if(lvl==="partic")add("c2s","yes","r.c2s.partic",{pp:PP_PUMA,w:"w.puma"});
+    else if(lvl==="above")no.push(["c2s","r.no.above"]);
+    else add("c2s","check","r.unknown");
+  }
+  switch(s.statut){
+    case "reg":
+      if(lt3&&s.cas==="emploi"){add("puma","yes","r.puma.emploi");c2s();}
+      else if(lt3&&s.cas&&s.cas!=="aucun"){add("puma","yes","r.puma.arrivee",{pp:PP_PUMA,w:"w.puma"});c2s();}
+      else if(lt3){add("pass","now","r.pass.now",{w:"w.pass"});add("puma","later","r.puma.wait",{pp:PP_PUMA,w:"w.puma"});add("c2s","later","r.c2s.after");}
+      else{add("puma","yes","r.puma.yes",{pp:PP_PUMA,w:"w.puma"});c2s();}
+      break;
+    case "asile":
+      if(child){add("puma","yes","r.puma.asileChild",{pp:PP_PUMA,w:"w.puma"});c2s();}
+      else if(lt3){add("suv","now","r.suv.now",{w:"w.suv"});add("pass","now","r.pass.now",{w:"w.pass"});add("puma","later","r.puma.asileLater",{pp:PP_PUMA,w:"w.puma"});add("c2s","later","r.c2s.after");}
+      else{add("puma","yes","r.puma.yes",{pp:PP_PUMA,w:"w.puma"});c2s();}
+      break;
+    case "sans":
+      if(child){add("ame","yes","r.ame.child",{pp:["pp.idbase","pp.photo","pp.adresse"],w:"w.ame"});add("pass","now","r.pass.now",{w:"w.pass"});}
+      else if(lt3){add("suv","now","r.suv.now",{w:"w.suv"});add("pass","now","r.pass.now",{w:"w.pass"});add("ame","later","r.ame.later",{pp:PP_AME,w:"w.ame"});notes.push("n.photo");}
+      else{
+        if(lvl==="free")add("ame","yes","r.ame.yes",{pp:PP_AME,w:"w.ame"});
+        else if(lvl==="unknown")add("ame","check","r.unknown",{pp:PP_AME,w:"w.ame"});
+        else{no.push(["ame","r.no.above"]);add("suv","now","r.suv.now",{w:"w.suv"});}
+        add("pass","now","r.pass.now",{w:"w.pass"});
+        notes.push("n.photo");
+      }
+      if(!child)add("tsoins","check","r.tsoins",{w:"w.tsoins"});
+      notes.push("n.expired");
+      break;
+    case "visa":
+      add("assur","now","r.assur");
+      add("pass","check","r.pass.visa",{w:"w.pass"});
+      no.push(["ame","r.no.visa"]);
+      if(!child)add("tsoins","check","r.tsoins",{w:"w.tsoins"});
+      break;
+    case "ue":
+      add("pass","now","r.pass.now",{w:"w.pass"});
+      add("puma","check","r.puma.ue",{pp:PP_PUMA,w:"w.puma"});
+      add("ame","check","r.ame.ue",{pp:PP_AME,w:"w.ame"});
+      break;
+  }
+  if(preg){items.forEach(function(it){if(it.id==="suv")it.txt.push("r.suv.preg");});notes.unshift("n.preg");}
+  if(s.lieu==="dom")notes.push("n.dom");
+  var rank={now:0,yes:1,check:2,later:3};
+  items.sort(function(a,b){return rank[a.st]-rank[b.st];});
+  return {items:items,notes:notes,no:no};
+}
+
+/* ---------- Vues ---------- */
+var app=document.getElementById("app");
+function backBtn(label,act){return '<button type="button" class="back" data-act="'+act+'">'+flip("left",22)+"<span>"+esc(t(label))+"</span></button>";}
+function icc(n,sm){return '<span class="ic-c'+(sm?" sm":"")+'">'+svg(n,sm?24:30)+"</span>";}
+
+function vHome(){
+  var tile=function(view,ic,title,sub,main){return '<button type="button" class="tile'+(main?" main":"")+'" data-go="'+view+'">'+icc(ic)+'<span><span class="t-title">'+esc(t(title))+'</span><span class="t-sub">'+esc(t(sub))+"</span></span>"+'<span class="chev">'+flip("chev",26)+"</span></button>";};
+  return '<div class="view-head"><h1 tabindex="-1" class="vfocus">'+esc(t("name"))+'</h1><p class="lead">'+esc(t("tagline"))+"</p></div>"+
+    '<h2 style="font-size:1.25rem">'+esc(t("home.question"))+"</h2>"+
+    '<div class="tiles">'+tile("sim","quest","home.sim","home.sim.sub",true)+tile("lieux","pin","home.lieux","home.lieux.sub")+tile("aides","folder","nav.aides","home.aides.sub")+tile("phrases","bubble","nav.phrases","home.phrases.sub")+tile("contacts","phone","home.contacts","home.contacts.sub")+"</div>";
+}
+
+function vSim(){
+  if(DONE)return vResult();
+  var st=steps();if(STEP>=st.length)STEP=st.length-1;
+  var key=st[STEP],q=QDEF[key];
+  var bar=st.map(function(_,i){return '<span class="'+(i<=STEP?"on":"")+'"></span>';}).join("");
+  var h=backBtn(STEP===0?"nav.home":"back","simback")+
+    '<div class="progress"><p>'+esc(fmt("progress",{i:STEP+1,n:st.length}))+'</p><div class="bar" aria-hidden="true">'+bar+"</div></div>"+
+    '<div class="qcard"><h2 tabindex="-1" class="vfocus">'+esc(t(q.q))+"</h2>"+(q.hint?'<p class="hint">'+esc(t(q.hint))+"</p>":"");
+  if(q.opts){
+    h+='<div class="choices" role="group">'+q.opts.map(function(o){
+      return '<button type="button" class="choice" data-k="'+key+'" data-v="'+o[0]+'" aria-pressed="'+(s[key]===o[0])+'">'+icc(o[1],true)+'<span class="txt">'+esc(t("o."+o[0]))+'</span><span class="tick">'+svg("ok",26,3)+"</span></button>";
+    }).join("")+"</div>";
+  }else if(q.type==="count"){
+    h+='<div class="stepper"><button type="button" data-act="minus" aria-label="−">'+svg("minus",28,3)+'</button><output aria-live="polite">'+s.foyer+'</output><button type="button" data-act="plus" aria-label="+">'+svg("plus",28,3)+"</button></div>"+
+      '<div class="actions"><button type="button" class="btn" data-act="next">'+esc(t("next"))+flip("chev",22)+"</button></div>";
+  }else{
+    var c=caps(s.foyer,s.lieu);
+    h+='<label class="money" for="rev"><input id="rev" type="number" inputmode="numeric" min="0" step="10" placeholder="0" value="'+(s.revenu===null?"":s.revenu)+'"><span>'+esc(t("q6.unit"))+"</span></label>"+
+      '<p class="capline">'+esc(fmt("calc.cap",{n:s.foyer,a:eur(c.free),m:eur(c.free/12)}))+"</p>"+
+      '<div class="actions"><button type="button" class="btn" data-act="result">'+esc(t("see.result"))+flip("chev",22)+'</button><button type="button" class="btn sec" data-act="none">'+esc(t("q6.none"))+'</button><button type="button" class="btn sec" data-act="dk">'+esc(t("q6.dk"))+"</button></div>";
+  }
+  h+="</div>";
+  if(STEP===0)h+='<p class="private">'+svg("lock",20)+"<span>"+esc(t("sim.private"))+"</span></p>";
+  return h;
+}
+
+function vResult(){
+  var r=compute(),h=backBtn("back","simback")+'<div class="view-head"><h1 tabindex="-1" class="vfocus">'+esc(t("res.title"))+"</h1>";
+  if(r.items.length)h+='<p class="lead">'+esc(t("res.lead"))+"</p>";
+  h+="</div>";
+  if(r.items.length){
+    h+='<ol class="rlist">'+r.items.map(function(it,i){
+      var body=it.txt.map(function(k){return "<p>"+esc(t(k))+"</p>";}).join("");
+      var hasMore=it.pp||it.w,pid="more-"+i;
+      var more=hasMore?'<button type="button" class="toggle" aria-expanded="false" aria-controls="'+pid+'" data-act="toggle">'+esc(t("res.details"))+svg("down",22,2.4)+'</button><div class="more" id="'+pid+'" hidden>'+
+        (it.pp?"<h4>"+esc(t("res.papers"))+"</h4><ul>"+it.pp.map(function(k){return "<li>"+esc(t(k))+"</li>";}).join("")+"</ul>":"")+
+        (it.w?"<h4>"+esc(t("res.where"))+"</h4><p>"+esc(t(it.w))+"</p>":"")+"</div>":"";
+      var link=PRO[it.id]?'<button type="button" class="toggle" data-fiche="'+it.id+'">'+esc(t("res.more"))+flip("chev",20)+"</button>":"";
+      if(it.id==="pass"||it.id==="suv")link='<button type="button" class="toggle" data-lieu="pass">'+svg("pin",20)+esc(t("res.near"))+"</button>"+link;
+      return '<li class="rcard"><div class="rhead">'+icc(AID_ICON[it.id],true)+"<h3>"+esc(t("pl."+it.id))+'</h3></div><span class="pill '+it.st+'">'+svg(ST_ICON[it.st],20,2.6)+esc(t("st."+it.st))+"</span>"+body+'<div class="rbtns">'+more.split('<div class="more"')[0]+link+"</div>"+(hasMore?'<div class="more"'+more.split('<div class="more"')[1]:"")+"</li>";
+    }).join("")+"</ol>";
+  }
+  if(r.notes.length)h+='<div class="notes"><h3>'+svg("info",24)+esc(t("res.notes"))+"</h3><ul>"+r.notes.map(function(k){return "<li>"+esc(t(k))+"</li>";}).join("")+"</ul></div>";
+  if(r.no.length)h+='<div class="notapply"><b>'+esc(t("res.notapply"))+"</b>"+r.no.map(function(n){return "<p>"+esc(t("pl."+n[0]))+" : "+esc(t(n[1]))+"</p>";}).join("")+"</div>";
+  h+='<p class="disclaimer">'+esc(t("res.disclaimer"))+'</p><div class="actions"><button type="button" class="btn sec" data-act="edit">'+esc(t("res.edit"))+'</button><button type="button" class="btn sec" data-act="restart">'+esc(t("res.restart"))+"</button></div>";
+  return h;
+}
+
+function row(attr,ic,title,sub,extra){return '<li><button type="button" class="row" '+attr+'>'+icc(ic,true)+'<span class="txt"><b>'+esc(title)+"</b><small>"+esc(sub)+"</small>"+(extra||"")+"</span>"+flip("chev",26)+"</button></li>";}
+function leaflet(){
+  var mine=LEAF.filter(function(x){return x[0]===L;})[0];
+  var a=function(x,cls){return '<a'+(cls?' class="'+cls+'"':"")+' href="'+LEAF_BASE+x[3]+'.pdf" target="_blank" rel="noopener" lang="'+x[1]+'">'+esc(x[2])+"</a>";};
+  return '<section class="lf"><h2>'+svg("book",26)+"<span>"+esc(t("lf.title"))+"</span></h2><p>"+esc(t("lf.sub"))+'</p><p class="grp-h">'+esc(t("lf.yours"))+'</p><div class="langs-list">'+a(mine,"mine")+'</div><p class="grp-h">'+esc(t("lf.others"))+'</p><div class="langs-list">'+LEAF.filter(function(x){return x!==mine;}).map(function(x){return a(x);}).join("")+"</div></section>";
+}
+function vAides(){
+  return backBtn("nav.home","home")+'<div class="view-head"><h1 tabindex="-1" class="vfocus">'+esc(t("nav.aides"))+'</h1><p class="lead">'+esc(t("home.aides.sub"))+"</p></div>"+
+    '<h2 class="grp-h">'+esc(t("grp.understand"))+'</h2><ul class="rows">'+row('data-info="dr"',"scale",t("dr.title"),t("dr.sub"))+row('data-info="rb"',"euro",t("rb.title"),t("rb.sub"))+"</ul>"+
+    '<h2 class="grp-h">'+esc(t("grp.aides"))+'</h2><ul class="rows">'+ORDER.map(function(id){return row('data-fiche="'+id+'"',AID_ICON[id],t("pl."+id),t(id+".what"));}).join("")+"</ul>"+leaflet();
+}
+function vInfo(){
+  var k=INFO,blocks=k==="dr"?["dr1","dr2","dr3","dr4"]:["rb1","rb2","rb3","rb4"];
+  return backBtn("nav.aides","aides")+'<div class="rhead">'+icc(k==="dr"?"scale":"euro")+'<h1 tabindex="-1" class="vfocus" style="font-size:clamp(1.5rem,4.5vw,2rem)">'+esc(t(k+".title"))+"</h1></div>"+
+    blocks.map(function(b){return '<div class="fblock"><h3>'+esc(t(b+"t"))+"</h3><p>"+esc(t(b))+"</p></div>";}).join("");
+}
+function locBox(){
+  if(LOC&&LOC.label)return '<div class="locbox"><div class="locset"><p>'+svg("pin",24)+"<span>"+esc(fmt("loc.set",{x:LOC.label}))+'</span></p><button type="button" class="toggle" data-act="locchange">'+esc(t("loc.change"))+"</button></div></div>";
+  var st="";
+  if(LOC&&LOC.status==="loading")st='<p class="note-s" role="status">'+esc(t("loc.loading"))+"</p>";
+  if(LOC&&LOC.status==="notfound")st='<p role="alert" style="font-weight:600;color:var(--urgent)">'+esc(t("loc.notfound"))+"</p>";
+  if(LOC&&LOC.status==="choose")st='<p style="font-weight:600">'+esc(t("loc.choose"))+'</p><div class="actions">'+LOC.cands.map(function(c,i){return '<button type="button" class="btn sec" data-pick="'+i+'">'+esc(c[0]+" ("+c[2]+")")+"</button>";}).join("")+"</div>";
+  return '<form class="locbox" id="locform" novalidate><label for="loc">'+esc(t("loc.label"))+'</label><div class="locrow"><input id="loc" type="text" autocomplete="off" value="'+esc(LOC&&LOC.text?LOC.text:"")+'"><button class="btn" type="submit">'+esc(t("loc.ok"))+"</button></div>"+st+'<p class="private">'+svg("lock",20)+"<span>"+esc(t("loc.private"))+"</span></p></form>";
+}
+function vLieux(){
+  var rows=function(g){return '<ul class="rows">'+NEEDS.filter(function(n){return n.grp===g;}).map(function(n){
+    var extra="";
+    if(LOC&&LOC.lat!==undefined){var nn=nearest(n,1);if(nn.length)extra='<small style="color:var(--accent);font-weight:700">'+esc(fmt("near.closest",{d:fmtKm(nn[0][0])}))+"</small>";}
+    return row('data-lieu="'+n.id+'"',n.ic,t("need."+n.id),t("need."+n.id+".d"),extra);
+  }).join("")+"</ul>";};
+  return backBtn("nav.home","home")+'<div class="view-head"><h1 tabindex="-1" class="vfocus">'+esc(t("home.lieux"))+'</h1><p class="lead">'+esc(t("home.lieux.sub"))+"</p></div>"+
+    locBox()+'<h2 class="grp-h">'+esc(t("grp.common"))+"</h2>"+rows(1)+'<h2 class="grp-h">'+esc(t("grp.special"))+"</h2>"+rows(2);
+}
+function vLieu(){
+  var n=needById(LIEU),h="";
+  h+=backBtn(FROM_L==="sim"?"res.title":"home.lieux",FROM_L==="sim"?"tores":"lieux");
+  h+='<div class="rhead">'+icc(n.ic)+'<h1 tabindex="-1" class="vfocus" style="font-size:clamp(1.5rem,4.5vw,2rem)">'+esc(t("need."+n.id))+"</h1></div>";
+  if(n.free)h+='<span class="badge">'+svg("ok",20,2.6)+esc(t("free.badge"))+"</span>";
+  h+='<div class="fblock"><p>'+esc(t("need."+n.id+".d"))+"</p>"+(n.more?'<p style="font-size:1rem;color:var(--ink-2)">'+esc(t("need."+n.id+".m"))+"</p>":"")+"</div>";
+  if(n.nums)h+='<div class="big-nums" aria-label="15, 112, 114"><span>15</span><span>112</span><span>114</span></div><p class="box">'+esc(t("urgent"))+" "+esc(t("num114"))+" : 114.</p>";
+  h+=locBox();
+  var where=LOC&&LOC.city?LOC.city:"";
+  h+='<div class="actions"><a class="btn" href="'+gmaps(n.q+(where?" "+where:""))+'" target="_blank" rel="noopener">'+svg("pin",22)+esc(where?fmt("map.btn",{x:LOC.label}):t("map.btn0"))+svg("ext",18)+'</a></div><p class="note-s">'+esc(t("map.note"))+"</p>";
+  if(n.keys.length){
+    if(!LOC||!LOC.label)h+='<p class="note-s">'+esc(t("near.ask"))+"</p>";
+    else if(DATA===null||LOC.lat===undefined)h+='<p class="note-s">'+esc(t("near.nodata"))+"</p>";
+    else{
+      var all=nearest(n),lim=MORE[n.id]||3,list=all.slice(0,lim);
+      h+='<h2 class="sub-h">'+esc(t("near.title"))+"</h2>";
+      if(!list.length)h+="<p>"+esc(t("near.none"))+"</p>";
+      else{
+        h+='<ul class="places">'+list.map(function(x){var p=x[1];
+          return "<li><b>"+esc(p[1])+(p[0]==="psyenf"?" · "+esc(t("near.child")):"")+'</b><span class="addr">'+esc([p[2],(p[3]+" "+p[4]).trim()].filter(Boolean).join(", "))+'</span><span class="dist">'+esc(fmt("near.km",{d:fmtKm(x[0])}))+"</span>"+(p[7]?'<span>'+esc(t("near.tel"))+' <span style="direction:ltr;unicode-bidi:isolate;font-weight:700;user-select:all">'+esc(p[7])+"</span></span>":"")+'<a href="'+gmaps(p[5]+","+p[6])+'" target="_blank" rel="noopener">'+esc(t("map.btn0"))+"</a></li>";
+        }).join("")+"</ul>";
+        if(all.length>lim&&lim<18)h+='<div class="actions"><button type="button" class="btn sec" data-act="more">'+esc(t("near.more"))+"</button></div>";
+        h+='<p class="note-s">'+esc(t(n.keys[0]==="hopital"?"near.hosp":"near.call"))+" "+esc(t("near.source"))+"</p>";
+      }
+    }
+  }
+  if(n.links)h+='<h2 class="sub-h">'+esc(t("links.useful"))+'</h2><div class="langs-list">'+n.links.map(function(l){return '<a href="'+l[1]+'" target="_blank" rel="noopener" style="font-family:var(--f-latin)">'+esc(l[0])+"</a>";}).join("")+"</div>";
+  return h;
+}
+function vFiche(){
+  var id=FICHE;
+  var blk=function(h,k){return '<div class="fblock"><h3>'+esc(t(h))+"</h3><p>"+esc(t(k))+"</p></div>";};
+  return backBtn(FROM==="sim"?"res.title":"aides.all",FROM==="sim"?"tores":"aides")+
+    '<div class="rhead">'+icc(AID_ICON[id])+'<h1 tabindex="-1" class="vfocus" style="font-size:clamp(1.5rem,4.5vw,2rem)">'+esc(t("pl."+id))+"</h1></div>"+
+    blk("f.what",id+".what")+blk("f.who",id+".who")+blk("f.how",id+".how")+
+    '<details class="pro"><summary>'+esc(t("f.pro"))+'</summary><div class="pro-body fr" lang="fr">'+PRO[id]+"</div></details>";
+}
+function vPhrases(){
+  return backBtn("nav.home","home")+'<div class="view-head"><h1 tabindex="-1" class="vfocus">'+esc(t("nav.phrases"))+'</h1><p class="lead">'+esc(t("ph.intro"))+"</p></div>"+
+    PHRASES.map(function(p,i){
+      var fr=p.fr.replace("{lang}",langFr());
+      return '<article class="phrase"><p class="say fr" lang="fr">'+esc(fr)+"</p>"+(L==="fr"?"":'<p class="meaning">'+esc(t(p.k))+"</p>")+'<div class="actions"><button type="button" class="btn" data-ph="'+i+'">'+svg("bubble",22)+esc(t("ph.big"))+"</button></div></article>";
+    }).join("");
+}
+function vContacts(){
+  var num=function(n,k,urg){return '<li class="num'+(urg?" urg":"")+'"><span class="n">'+n+"</span><span>"+esc(t(k))+"</span></li>";};
+  return backBtn("nav.home","home")+'<div class="view-head"><h1 tabindex="-1" class="vfocus">'+esc(t("home.contacts"))+"</h1></div>"+
+    '<h2 class="sub-h">'+esc(t("ct.urg"))+'</h2><ul class="nums">'+num("15","num15",1)+num("112","num112",1)+num("114","num114",1)+"</ul>"+
+    '<p class="box">'+esc(t("urgent"))+"</p>"+
+    '<h2 class="sub-h">'+esc(t("ct.other"))+'</h2><ul class="nums">'+num("115","num115")+num("119","num119")+num("36 46","num3646")+"</ul>"+
+    '<h2 class="sub-h">'+esc(t("ct.orgs"))+'</h2><p class="box">'+esc(t("ct.pass"))+'</p><ul class="orgs">'+ORGS.map(function(o){
+      var name=o[1]?'<a class="o-name" href="'+o[1]+'" target="_blank" rel="noopener">'+esc(o[0])+"</a>":'<span class="o-name">'+esc(o[0])+"</span>";
+      return "<li>"+name+'<span class="o-desc">'+esc(t(o[2]))+"</span></li>";
+    }).join("")+"</ul>"+
+    '<details class="src"><summary>'+esc(t("src.title"))+'</summary><p style="margin-bottom:12px">'+esc(t("src.checked"))+'</p><ol class="fr" lang="fr">'+SOURCES.map(function(x){return '<li><a href="'+x[0]+'" target="_blank" rel="noopener">'+esc(x[1])+"</a></li>";}).join("")+"</ol></details>";
+}
+
+function render(focus){
+  document.querySelectorAll("[data-t]").forEach(function(el){el.textContent=t(el.getAttribute("data-t"));});
+  document.getElementById("tnote").hidden=(L==="fr");
+  document.getElementById("ovClose").textContent=t("ph.close");
+  document.querySelectorAll("#langs button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-l")===L?"true":"false");});
+  document.querySelectorAll("[data-size]").forEach(function(b){b.setAttribute("aria-pressed",+b.getAttribute("data-size")===SIZE?"true":"false");b.setAttribute("aria-label",t("size.label")+" "+b.getAttribute("data-size"));});
+  var html={home:vHome,sim:vSim,aides:vAides,fiche:vFiche,phrases:vPhrases,contacts:vContacts,lieux:vLieux,lieu:vLieu,info:vInfo}[VIEW]();
+  app.innerHTML='<div class="view">'+html+"</div>";
+  if(focus){window.scrollTo(0,0);var f=app.querySelector(".vfocus");if(f)f.focus({preventScroll:true});}
+}
+function go(v){VIEW=v;render(true);}
+
+/* ---------- Évènements ---------- */
+app.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.go){if(b.dataset.go==="sim"){DONE=false;STEP=0;}go(b.dataset.go);return;}
+  if(b.dataset.fiche){FROM=VIEW==="sim"?"sim":"aides";FICHE=b.dataset.fiche;go("fiche");return;}
+  if(b.dataset.ph!==undefined){openOv(b);return;}
+  if(b.dataset.lieu){FROM_L=VIEW==="sim"?"sim":"lieux";LIEU=b.dataset.lieu;go("lieu");return;}
+  if(b.dataset.info){INFO=b.dataset.info;go("info");return;}
+  if(b.dataset.pick!==undefined){LOC=locFrom(LOC.cands[+b.dataset.pick]);render(false);focusLoc();return;}
+  if(b.dataset.k){
+    s[b.dataset.k]=b.dataset.v;if(!visible().duree)s.duree=null;if(!visible().cas)s.cas=null;
+    var st=steps(),i=st.indexOf(b.dataset.k)+1;
+    if(i>=st.length)DONE=true;else STEP=i;
+    render(true);return;
+  }
+  var a=b.dataset.act;
+  if(a==="home")go("home");
+  else if(a==="lieux")go("lieux");
+  else if(a==="locchange"){var keep=LOC&&LOC.label?LOC.label.replace(/\s\(.*\)$/,""):"";LOC={text:keep};render(false);var li=document.getElementById("loc");if(li){li.focus();li.select();}}
+  else if(a==="more"){MORE[LIEU]=(MORE[LIEU]||3)+5;render(false);}
+  else if(a==="aides")go("aides");
+  else if(a==="tores"){DONE=true;go("sim");}
+  else if(a==="simback"){if(DONE){DONE=false;STEP=steps().length-1;render(true);}else if(STEP>0){STEP--;render(true);}else go("home");}
+  else if(a==="minus"){if(s.foyer>1){s.foyer--;render(false);app.querySelector('[data-act="minus"]').focus();}}
+  else if(a==="plus"){if(s.foyer<12){s.foyer++;render(false);app.querySelector('[data-act="plus"]').focus();}}
+  else if(a==="next"){var st2=steps();if(STEP+1>=st2.length)DONE=true;else STEP++;render(true);}
+  else if(a==="result"){var v=document.getElementById("rev").value;s.revenu=v===""?null:Math.max(0,parseFloat(v));DONE=true;render(true);}
+  else if(a==="none"){s.revenu=0;DONE=true;render(true);}
+  else if(a==="dk"){s.revenu=null;DONE=true;render(true);}
+  else if(a==="edit"){DONE=false;STEP=0;render(true);}
+  else if(a==="restart"){s={statut:null,qui:null,duree:null,cas:null,lieu:null,foyer:1,revenu:null};DONE=false;STEP=0;render(true);}
+  else if(a==="toggle"){var p=document.getElementById(b.getAttribute("aria-controls"));var open=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",open?"true":"false");p.hidden=!open;}
+});
+function focusLoc(){var b=app.querySelector('[data-act="locchange"]');if(b)b.focus();}
+app.addEventListener("submit",function(e){
+  if(e.target.id!=="locform")return;
+  e.preventDefault();
+  var text=document.getElementById("loc").value.trim();if(!text)return;
+  LOC={status:"loading",text:text};render(false);
+  loadData().then(function(d){
+    if(!d){LOC={label:text,city:text};}
+    else{var c=resolveLoc(text);
+      if(!c.length)LOC={status:"notfound",text:text};
+      else if(c.length===1)LOC=locFrom(c[0]);
+      else LOC={status:"choose",text:text,cands:c};}
+    render(false);
+    if(LOC.label)focusLoc();else{var f=app.querySelector("[data-pick]")||document.getElementById("loc");if(f)f.focus();}
+  });
+});
+app.addEventListener("keydown",function(e){if(e.target.id==="rev"&&e.key==="Enter"){e.preventDefault();app.querySelector('[data-act="result"]').click();}});
+document.getElementById("brand").addEventListener("click",function(){go("home");});
+document.querySelectorAll("[data-size]").forEach(function(b){b.addEventListener("click",function(){SIZE=+b.dataset.size;document.documentElement.style.fontSize=[112.5,130,150][SIZE-1]+"%";store("size",String(SIZE));render(false);});});
+document.getElementById("langs").innerHTML=LANGS.map(function(x){return '<button type="button" data-l="'+x.k+'" lang="'+x.lang+'" dir="'+x.dir+'" aria-pressed="false">'+x.label+"</button>";}).join("");
+document.getElementById("langs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)setLang(b.dataset.l,true);});
+function setLang(k,save){var x=LANGS.filter(function(l){return l.k===k;})[0];if(!x)return;L=k;document.documentElement.lang=x.lang;document.documentElement.dir=x.dir;document.title=t("name");if(save)store("lang",k);render(false);}
+
+var ov=document.getElementById("overlay"),lastBtn=null;
+function openOv(b){lastBtn=b;var p=PHRASES[+b.dataset.ph];document.getElementById("ovText").textContent=p.fr.replace("{lang}",langFr());ov.hidden=false;document.getElementById("ovClose").focus();}
+function closeOv(){ov.hidden=true;if(lastBtn&&document.body.contains(lastBtn))lastBtn.focus();}
+document.getElementById("ovClose").addEventListener("click",closeOv);
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!ov.hidden)closeOv();});
+
+/* ---------- Démarrage ---------- */
+var h=(location.hash||"").replace("#",""),z=load("size");
+if(z&&+z>=1&&+z<=3){SIZE=+z;document.documentElement.style.fontSize=[112.5,130,150][SIZE-1]+"%";}
+var VIEWS={simulateur:"sim",aides:"aides",phrases:"phrases",contacts:"contacts",lieux:"lieux"};
+if(VIEWS[h])VIEW=VIEWS[h];
+setLang(LANGS.some(function(x){return x.k===h;})?h:(load("lang")||"fr"),false);
+window.addEventListener("hashchange",function(){var k=(location.hash||"").replace("#","");if(LANGS.some(function(x){return x.k===k;}))setLang(k,true);else if(VIEWS[k])go(VIEWS[k]);});
+})();
+</script>
+
+</body></html>
